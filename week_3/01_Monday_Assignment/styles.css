@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     background: #F8F9FA;
@@ -30,17 +34,25 @@ body {
     margin: 24px auto;
     padding: 0 16px;
     display: flex;
+    flex-direction: column;
     gap: 16px;
 }
 
-.purpose,.sidebar, .resources, .biography, .skills, .benefits, .forms, .faqs {
+.purpose, .why-payroll-matters, .resources, .biography, .skills, .benefits, .forms, .faqs {
     background: #42BEA5;
     border: 1px solid #E2C2FF;
     border-radius: 8px;
-    margin-bottom: 16px; 
     padding: 16px;
 }
 
-.sidebar {flex: 2;}
+.aside-container {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
 
-.resources {flex: 1;}
+.why-payroll-matters, .resources {
+    flex: 1; 
+    background: #4E8074;
+    min-width: 0;
+}
