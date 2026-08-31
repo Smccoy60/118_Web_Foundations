@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+    background: #F8F9FA;
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+}
+
+.site-header {
+    background: #624CB1;
+    color: white;
+    padding: 24px;
+}
+
+.site-header h1 {
+    margin: 0 0 12px;
+}
+
+.nav-list {
+    display: flex;
+    gap: 12px;
+}
+
+.nav-list a {
+    color: #E2C2FF;
+    font-weight: bold;
+}
+
+.page {
+    max-width: 800px; 
+    margin: 24px auto;
+    padding: 0 16px;
+    display: flex;
+    gap: 16px;
+}
+
+.purpose,.sidebar, .resources, .biography, .skills, .benefits, .forms, .faqs {
+    background: #42BEA5;
+    border: 1px solid #E2C2FF;
+    border-radius: 8px;
+    margin-bottom: 16px; 
+    padding: 16px;
+}
+
+.sidebar {flex: 2;}
+
+.resources {flex: 1;}
