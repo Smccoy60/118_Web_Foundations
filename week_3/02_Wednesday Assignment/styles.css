@@ -1,0 +1,66 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #F8F9FA;
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+}
+
+.site-header {
+    background: #624CB1;
+    color: white;
+    padding: 24px;
+}
+
+.site-header h1, .nav-list {
+    max width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.nav-list a {
+    color: #E2C2FF;
+    font-weight: bold;
+}
+
+.page {
+    max-width: 800px; 
+    margin: 24px auto;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.about, .staff, .employee, .biography, .skills, .benefits, .forms, .faqs {
+    background: #42BEA5;
+    border: 1px solid #E2C2FF;
+    border-radius: 8px;
+    padding: 16px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.about, .staff, .employee {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.staff {
+    background: #AEA8BA
+}
+
+.employee {
+    background: #747485
+}
+
+@media (max-width: 700px) {
+    .about, .staff, .employee, {
+        grid-template-columns: 1fr;
+    }
+}
