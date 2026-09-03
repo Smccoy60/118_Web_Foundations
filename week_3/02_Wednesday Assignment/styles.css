@@ -35,8 +35,8 @@ body {
     gap: 16px;
 }
 
-.about, .staff, .employee, .biography, .skills, .benefits, .forms, .faqs {
-    background: #42BEA5;
+.about, .card, .employee, .biography, .skills, .benefits, .forms, .faqs {
+    background: #0069CB;
     border: 1px solid #E2C2FF;
     border-radius: 8px;
     padding: 16px;
@@ -45,22 +45,22 @@ body {
     gap: 16px;
 }
 
-.about, .staff, .employee {
+.about, .card, .employee {
     display: flex;
     gap: 25px;
     flex-wrap: wrap;
 }
 
-.staff {
-    background: #AEA8BA
+.card {
+    background: #0091EA
 }
 
 .employee {
-    background: #747485
+    background: #00CAF0
 }
 
 @media (max-width: 700px) {
-    .about, .staff, .employee, {
+    .about, .card, .employee, {
         grid-template-columns: 1fr;
     }
 }
