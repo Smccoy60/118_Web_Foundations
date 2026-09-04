@@ -10,7 +10,7 @@ body {
 }
 
 .site-header {
-    background: #624CB1;
+    background: #009CA6;
     color: white;
     padding: 24px;
 }
@@ -22,7 +22,7 @@ body {
 }
 
 .nav-list a {
-    color: #E2C2FF;
+    color: #624CB1;
     font-weight: bold;
 }
 
@@ -35,7 +35,7 @@ body {
     gap: 16px;
 }
 
-.about, .card, .employee, .biography, .skills, .benefits, .forms, .faqs {
+.about, .card, .employee, .biography, .skills, .benefits, .forms, .faqs, .calculator {
     background: #0069CB;
     border: 1px solid #E2C2FF;
     border-radius: 8px;
