@@ -14,3 +14,5 @@ On line 10, i have the const employeeGrossPay which calls the function, which it
 Then I finally have the console.log outputs, of hours worked, hourly rate and gross pay.
 
 I've tested this with hours under 40 and hours over 40 and it calculates correctly.  
+
+Reflection: JS feels different from CSS/HTML because the functions seem to "live" in the javascript, whereas the css file is basically the "decorator" for the pages.  And the HTML is what spells out the details of the pages.  So, it seems the javascript is kinda the brains behind the pages in respect to making the page intereactive with the end user. 
