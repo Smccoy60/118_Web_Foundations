@@ -9,10 +9,10 @@ body {
     line-height: 1.5;
 }
 
-.site-header {
-    background: #009CA6;
+.site-header, {
+    background: linear-gradient(135deg, #005f73, #0a9396);
     color: white;
-    padding: 24px;
+    padding: 40px;
 }
 
 .site-header h1, .nav-list {
@@ -86,6 +86,39 @@ label, input, button {
 
 .payInputs {
     display: flex;
-    gap: 20px;
-    padding: 4px 0;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.calculator-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.gross-pay-calculator {
+    background: white;
+    color: #333;
+    width: 400px;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.calculator {
+    background: white;
+    width: 350px;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.calculator button {
+    margin-top: 10px;
+    width: 100%;
 }
