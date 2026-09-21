@@ -7,30 +7,35 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <nav class="nav-list">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Resources.html">Payroll Administration Resources</a></li>
+            <li><a href="EmployeeResources.html">Employee Resources</a></li>
+        </ul>
+    </nav>
     <header class="site-header">
         <h1>Employee Resources</h1>
-        <nav class="nav-list">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="About.html">About</a></li>
-                <li><a href="Resources.html">Payroll Administration Resources</a></li>
-                <li><a href="EmployeeResources.html">Employee Resources</a></li>
-            </ul>
-        </nav>
     </header>
-        <section class="gross-pay-calculator">
-            <h2>Gross Pay Calculator</h2>
-            <p>Enter your hours worked and hourly rate to calculate your gross pay.</p>
-            <div class="payInputs">
-                <label for="hoursWorked">Hours Worked:</label>
-                <input id="hoursWorked" type="number" placeholder="Enter Hours Worked" />
-                <label for="hourlyRate">Hourly Rate:</label>
-                <input id="hourlyRate" type="number" placeholder="Enter Hourly Rate" />
-                <button id="grosspayBtn">Calculate Gross Pay</button>
-                <p id="grosspayResult"></p>
-            </div>
-            <script src="script.js"></script>
-        </section>
+        <div class="calculator-container">
+            <section class="gross-pay-calculator">
+                <h2>Gross Pay Calculator</h2>
+                <div class="payInputs">
+                    <div class="inputGroup">
+                        <label for="hoursWorked">Hours Worked:</label>
+                        <input id="hoursWorked" type="number" placeholder="Enter Hours Worked" />
+                    </div>
+                    <div class="inputGroup">
+                        <label for="hourlyRate">Hourly Rate:</label>
+                        <input id="hourlyRate" type="number" placeholder="Enter Hourly Rate" />
+                    </div> <!-- .inputGroup -->
+                    <button id="grosspayBtn">Calculate Gross Pay</button>
+                    <p id="grosspayResult"></p>
+                </div> <!-- .payInputs -->
+            </section>
+        </div>
+        <script src="script.js"></script>
     <main class="page">
         <section class="forms">
             <h2>Payroll Forms</h2>

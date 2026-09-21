@@ -7,39 +7,63 @@
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+    <nav class="nav-list">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Resources.html">Payroll Administration Resources</a></li>
+            <li><a href="EmployeeResources.html">Employee Resources</a></li>
+        </ul>
+    </nav>
+         <aside class="sidebar">
+            <h3>Quick Payroll Facts</h3>
+            <ul>
+                <li>Gross Pay = Hours x Rate</li>
+                <li>Net Pay = Gross - Deductions</li>
+                <li>Payroll is processsed every 2 weeks.</li>
+                <li>Direct Deposit is required.</li>
+            </ul>
+            <h3>Upcoming Payroll Dates</h3>
+            <ul>
+                <li>September 25, 2026</li>
+                <li>October 9, 2026</li>
+                <li>October 23, 2026</li>
+                <li>November 6, 2026</li>
+            </ul>
+            <h3>Payroll Tips of the Day</h3>
+            <ul>
+                <li>Keep Direct Deposit information up to date.</li>
+                <li>Submit your timesheets on time.</li>
+                <li>Review your pay stub for accuracy.</li>
+            </ul>
+        </aside>
     <header class="site-header">
         <h1>Payroll Resources & Administration</h1>
-        <p> This page is designed to help staff and employees understand pay, benefits, deductions and processes.</p>
+        <p> Links and information to help navigate the payroll process easier.</p>
         <div class="calculator-container">
             <section class="calculator">
-                <h2>Payroll Countdown Calculator</h2>
-                <p>Use the calculator below to determine the number of days until the next payroll date.</p>
+                <h2>Payroll Countdown</h2>
                 <button id="payrollBtn">Check Payroll Countdown</button>
                 <p id="payrollCountdown"></p>
             </section>
             <section class="gross-pay-calculator">
                 <h2>Gross Pay Calculator</h2>
-                <p>Enter your hours worked and hourly rate to calculate your gross pay.</p>
                 <div class="payInputs">
-                    <label for="hoursWorked">Hours Worked:</label>
-                    <input id="hoursWorked" type="number" placeholder="Enter Hours Worked" />
-                    <label for="hourlyRate">Hourly Rate:</label>
-                    <input id="hourlyRate" type="number" placeholder="Enter Hourly Rate" />
+                    <div class="inputGroup">
+                        <label for="hoursWorked">Hours Worked:</label>
+                        <input id="hoursWorked" type="number" placeholder="Enter Hours Worked" />
+                    </div>
+                    <div class="inputGroup">
+                        <label for="hourlyRate">Hourly Rate:</label>
+                        <input id="hourlyRate" type="number" placeholder="Enter Hourly Rate" />
+                    </div> <!-- .inputGroup -->
                     <button id="grosspayBtn">Calculate Gross Pay</button>
                     <p id="grosspayResult"></p>
-                </div>
+                </div> <!-- .payInputs -->
             </section>
         </div>
         <script src="script.js"></script>
-        <nav class="nav-list">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="About.html">About</a></li>
-                <li><a href="Resources.html">Payroll Administration Resources</a></li>
-                <li><a href="EmployeeResources.html">Employee Resources</a></li>
-            </ul>
-        </nav>
-    </header>
+       </header>
 
     <main class="page">
         <article class="about">
