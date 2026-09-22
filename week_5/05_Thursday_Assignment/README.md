@@ -23,3 +23,15 @@ Reflection:
 The page behavior help me understand that JavaScript is what makes a web page interactive.  I understood the code as seperate lines, but when adding javascript and watching the page respond when clicking the buttons it showed me how the different parts work together.  I learned that the queryselector connects the JavaScript to the HTML elements, that functions perform the actual work and the event listener are what is waiting for the end user to do the action before kicking everything into motion.  Actually watching the Gross Pay Calculator work and seeing how it appeared on the page as I was creating it made it easier to understand and watch the flow of data.  
 
 Also, my next question after doing this assignment is what happens if someone enters a value of "0", it doesn't stop the code from running like I may intend it to as that wouldn't be a valid input for either a rate of number of hours.  But, my current code says it has to be a "blank" before it stops the code from running.  How would we go about correcting that issue? 
+
+---
+
+## Instructor comments:
+
+### Good:
+- You are being very thorough. 
+- Your documentation here is of high quality work!
+- Your reflection demonstrates your learning. Keep it up!
+
+### Suggestion(s):
+- In your Thu submission you have a nice "aside" for the "Quick Payroll Facts" - I would recommend that you make it ***responsive***. Currently it "overlays" the main content when the screen is resized.
