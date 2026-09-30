@@ -1,0 +1,171 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #F8F9FA;
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+}
+
+.site-header {
+    text-align: center;
+    clear: both;
+}
+
+.site-header p {
+    max-width: 700px;
+    margin: 15px auto;
+}
+
+.nav-list {
+    max-width: 900px;
+    justify-content: left;
+}
+
+.nav-list a {
+    color: black;
+    font-weight: bold;
+}
+
+.nav-list ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    gap: 30px;
+    list-style: none;
+    padding: 0px;
+    margin: 0;
+}
+
+.nav-list li {
+    display: inline;
+}
+
+.page {
+    max-width: 800px; 
+    margin: 24px auto;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.about, .card, .employee, .biography, .skills, .benefits, .forms, .faqs, .paycheckcalculator {
+    background: #FF8B6A;
+    border: 1px solid #F9F871;
+    border-radius: 8px;
+    padding: 16px;
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 30px;
+}
+
+.faqs h2 {
+    font-size: 24 px;
+    margin: 0;
+}
+
+.about, .card, .employee {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.card, .benefits, .skills {
+    background: #FFC25A;
+}
+
+.employee, .faqs, .paycheckcalculator {
+    background: #F9DD62;}
+
+
+@media (max-width: 700px) {
+    .about, .card, .employee, .paycheckcalculator {
+        grid-template-columns: 1fr;
+    }
+}
+
+button {
+    padding: 8px 16px;
+    border-radius: 4px;
+}
+
+label, input, button {
+    display: block;
+    margin-top: 12px;
+    padding: 4px 0;
+}
+
+.payInputs {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: end;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.payInputs input {
+    width: 100%;
+}
+
+.calculator-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 15px;
+    margin-top: 20px;
+}
+
+.calculator, .gross-pay-calculator{
+    background: #FFB39C;
+    width: 400px;
+    padding: 12px;
+    border-radius: 15px;
+    box-shadow: 0 4px;
+    height: auto;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.calculator button {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.calculator h2, .gross-pay-calculator h2 {  
+    text-align: center;
+    font-size: 28px;
+}
+
+.calculator p, .gross-pay-calculator p {
+    margin: 5px 0;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.inputGroup input {
+    width: 120px;
+}
+
+.sidebar {
+    background: #FCD05E;
+    color: black;
+    width: 400px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    position: absolute;
+    left: 20px;
+    top: 300px;
+}
+
+
