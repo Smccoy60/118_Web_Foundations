@@ -25,7 +25,7 @@ function calculateGrossPay() {
     setTimeout(function () {
         const grossPay = calculatePay(hours, rate);
         console.log("Gross Pay Calculated: ", grossPay);
-        displayResults(grosspayResult, "Gross Pay: $" + grossPay.toFixed(2));
+        displayResult(grosspayResult, "Gross Pay: $" + grossPay.toFixed(2));
         setButtonState(grosspayBtn, false);
     }, 2000);
 }

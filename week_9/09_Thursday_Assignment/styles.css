@@ -203,3 +203,21 @@ label, input, button {
         width: 100%;
     }
 }
+
+.site-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    padding: 0;
+}
+
+.site-nav a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.site-nav a.active {
+    color: #0078d4;
+    border-bottom: 3px solid #0078d4;
+}
