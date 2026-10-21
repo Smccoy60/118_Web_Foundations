@@ -1,0 +1,27 @@
+body {
+    background: #F8F9FA;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: #8B0000;
+}
+
+li {
+    color: #DAA520;
+}
+
+p {
+    max-width: 520px; 
+    line-height: 1.5;
+    color: #2f2f2f;
+}
+
+h2 {
+    color: #B22222
+}
+
+footer {
+    font-size: 10px;
+    color: #2f2f2f;
+}

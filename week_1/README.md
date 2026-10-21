@@ -1,0 +1,3 @@
+# README.md
+My first version my title and headers were saying the exact same thing.  After viewing the actual page, I noticed that this was extremely redundant so I changed the headers to be something more meaningful.  I also noticed that I could put in actual website links in the topics page.  This allows the end user to go exactly to where they need to be, which will be very useful.  
+I also noted that between the first and final version, the use of navigation links made the site way easier to be able move around instead of having to use the back button all of the time. 

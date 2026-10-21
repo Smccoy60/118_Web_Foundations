@@ -55,4 +55,20 @@ When the payroll button is clicked, the order is:
         b. displayResult(payrollCountdown, "Days until next payroll: " + daysRemaining)
         c. payrollBtn.disabled = false
 
-** What can happen now? 
+What can happen now? 
+The program can immediately respond to the button click, display a waiting message, disable the button, and continue running other browser tasks.
+
+What has to wait until later? 
+The final gross pay result and final payroll countdown result wait until their timers finish.  These results are displayed by the code inside setTimer().
+
+What runs immediately? 
+The initial console message, validation, values entered by the user, waiting message, button-disabling statement, and timer setup run immediately.
+
+What runs later? 
+The function placed inside setTimer() runs later. For the gross pay calculation, that happens after two seconds. For the payroll countdown, an updated message appears after one second and the final result appears after three seconds
+
+Why is the delay intentional? 
+THe delay is intentional because the program clearly tells the user what is happening.  THe waiting message appears first, followed by the final result.  The timing is part of a planned sequence rather than an unexplained pause. 
+
+How did timing change your thinking? 
+Adding timing changed how I think about JavaScript because not every line produces its final result immediately.  Some code runs now, while code inside setTimer() runs later.  I also learned that it is important to give the user feedback while the program is waiting. In my project, I display a calculation message first and then show the final gross pay or payroll countdown result after the delay.  This makes the sequence easier for the user to understand. 
