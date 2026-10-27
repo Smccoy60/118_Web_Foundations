@@ -5,6 +5,9 @@ const hourlyRate = document.querySelector("#hourlyRate");
 const grosspayBtn = document.querySelector("#grosspayBtn");
 const grosspayResult = document.querySelector("#grosspayResult");
 
+// Gross Pay State
+let GrossPay = 0;
+
 // Check that both inputs contain values
 function inputsAreValid() {
     return (hoursWorked.value !== "" && hourlyRate.value !== "");
@@ -23,6 +26,17 @@ function getHourlyRate() {
 //Calculate Gross Pay
 function calculatePay(hours, rate) {
     return hours * rate;
+}
+
+// Update Gross Pay State
+function updateGrossPay(hours, rate) {
+    GrossPay = calculatePay(hours, rate);
+    renderGrossPay();
+}
+
+// Render Gross Pay State
+function renderGrossPay() {
+    displayResult(grosspayResult, `Gross Pay: ${GrossPay.toFixed(2)}`);
 }
 
 // Display a message in a page element
@@ -47,9 +61,8 @@ function calculateGrossPay() {
 
     grosspayBtn.disabled = true;
     setTimeout(function () {
-        const grossPay = calculatePay(hours, rate);
-        console.log("Calculated Gross Pay: ", grossPay);
-        displayResult(grosspayResult, "Gross Pay: $" + grossPay.toFixed(2));
+        updateGrossPay(hours, rate);
+        console.log("Calculated Gross Pay: ", GrossPay);
         grosspayBtn.disabled = false;
     }, 2000);
 }
