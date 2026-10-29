@@ -117,3 +117,124 @@ function showPayrollCountdown() {
 }
 
 payrollBtn.addEventListener("click", showPayrollCountdown);
+
+// Total Compensation Section
+
+// Connect HTML elements
+const annualWage = document.querySelector("#annualWage");
+const healthPlan = document.querySelector("#healthPlan");
+const dentalPlan = document.querySelector("#dentalPlan");
+const hsaPlan = document.querySelector("#hsaPlan");
+const compensationBtn = document.querySelector("#compensationBtn");
+const totalCompensation = document.querySelector("#totalCompensation");
+
+// Benefit Data
+let benefitData = {};
+
+// Compensation State
+let compensationState = {
+    annualWage: 0,
+    healthPlan: "",
+    dentalPlan: "",
+    hsaPlan: "",
+    healthAmount: 0,
+    dentalAmount: 0,
+    hsaAmount: 0,
+    retirementAmount: 0,
+    totalCompensation: 0
+};
+
+// Load employer benefit amounts from JSON file
+function loadBenefitData() {
+    fetch("benefits.json")
+        .then(response => response.json())
+        .then(data => {
+            benefitData = data;
+            console.log("Benefit data loaded:");
+            console.log(benefitData);
+        })
+        .catch(error => {
+            console.error("Unable to load benefit data:", error);
+        });
+}
+
+loadBenefitData();
+
+// Update employee selections in state
+function updateCompensationState() {
+    compensationState.annualWage = Number(annualWage.value);
+    compensationState.healthPlan = healthPlan.value;
+    compensationState.dentalPlan = dentalPlan.value;
+    compensationState.hsaPlan = hsaPlan.value;
+    console.log("Compensation State.");
+    console.log(compensationState);
+}
+
+// Look up employer benefit amounts
+function getBenefitAmounts() {
+    compensationState.healthAmount = benefitData.health[compensationState.healthPlan];
+    compensationState.dentalAmount = benefitData.dental[compensationState.dentalPlan];
+    compensationState.hsaAmount = benefitData.hsa[compensationState.hsaPlan];
+}
+
+// Calculate employer retirement contribution
+function calculateRetirement() {
+    compensationState.retirementAmount = compensationState.annualWage * benefitData.retirementRate;}
+
+// Calculate total compensation
+function calculateTotalCompensation() {
+    compensationState.totalCompensation = 
+    compensationState.annualWage + 
+    compensationState.healthAmount + 
+    compensationState.dentalAmount + 
+    compensationState.hsaAmount + 
+    compensationState.retirementAmount;
+}
+
+// Render Total Compensation Report
+function renderCompensation() {
+    compensationResult.innerHTML =
+        `
+        <div class="compensation-report">
+            <h2>Total Compensation Summary</h2>
+            <div class="report-row">
+                <span>Annual Gross Wage</span>
+                <span>$${compensationState.annualWage.toFixed(2)}</span>
+            </div>
+            <div class="report-row">
+                <span>Employer Health Contribution</span>
+                <span>$${compensationState.healthAmount.toFixed(2)}</span>
+            </div>
+            <div class="report-row">
+                <span>Employer Dental Contribution</span>
+                <span>$${compensationState.dentalAmount.toFixed(2)}</span>
+            </div>
+            <div class="report-row">
+                <span>Employer HSA Contribution</span>
+                <span>$${compensationState.hsaAmount.toFixed(2)}</span>
+            </div>
+            <div class="report-row">
+                <span>Employer Retirement Contribution</span>
+                <span>$${compensationState.retirementAmount.toFixed(2)}</span>
+            </div>
+            <div class="report-total">
+                <span>Estimated Total Compensation</span>
+                <span>$${compensationState.totalCompensation.toFixed(2)}</span>
+            </div>
+        </div>
+    `;
+}
+
+// Main Total Compensation Function
+function generateCompensationReport() {
+    updateCompensationState();
+    getBenefitAmounts();
+    calculateRetirement();
+    calculateTotalCompensation();
+    renderCompensation();
+    console.log("Final Compensation State:");
+    console.log(compensationState);
+}
+
+// Button event listener
+compensationBtn.addEventListener("click", generateCompensationReport);

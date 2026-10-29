@@ -39,7 +39,46 @@
                     <p id="grosspayResult"></p>
                 </div> <!-- .payInputs -->
             </section>
+            <section class="total-compensation">
+                <h2>Total Compensation</h2>
+                <p>Enter your annual gross wage and select your current benefit coverage to estimate your total employer compensation.</p>
+                <div class="inputGroup">
+                    <label for="annualWage">Annual Gross Wage:</label>
+                    <input id="annualWage" type="number" placeholder="Enter Annual Gross Wage" />
+                </div> <!-- .inputGroup -->
+                <div class="inputGroup">
+                    <label for="healthPlan">Health Plan:</label>
+                    <select id="healthPlan">
+                        <option value="">Select Health Coverage</option>
+                        <option value="none">None</option>
+                        <option value="single">Single</option>
+                        <option value="employeeSpouse">Employee + Spouse</option>
+                        <option value="employeeChildren">Employee + Child(ren)</option>
+                        <option value="family">Family</option>   
+                    </select>
+                </div> <!-- .inputGroup -->
+                <div class="inputGroup">
+                    <label for="dentalPlan">Dental Plan:</label>
+                    <select id="dentalPlan">
+                        <option value="">Select Dental Coverage</option>
+                        <option value="none">None</option>
+                        <option value="single">Single</option>
+                        <option value="family">Family</option>
+                    </select>
+                </div> <!-- .inputGroup -->
+                <div class="inputGroup">
+                    <label for="hsaPlan">HSA Contribution:</label>
+                    <select id="hsaPlan">
+                        <option value="">Select HSA Contribution</option>
+                        <option value="none">None</option>
+                        <option value="single">Single</option>
+                        <option value="family">Family</option>
+                    </select>
+                </div> <!-- .inputGroup -->
+                <button id="compensationBtn">Calculate Total Compensation</button>
+            </section>
         </div>
+        <div id="compensationResult"></div> <!-- #compensationResult -->
         <script src="script.js"></script>
         <div class="layout">
             <main class="page">
