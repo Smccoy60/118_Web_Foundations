@@ -1,39 +1,69 @@
 # README.md
-Purpose:
-The purpose of this site is to eventually use it as a resouce hub to keep everything in one place.  This site will also be used to give information to employee as well as helpful links.
 
-## State Management Update
+### Weeky 13 - Security Awareness and Reliability
 
-I updated the Gross Pay Calculator to use state management.
+For the Week 13 assignment, I continued workign with my Payroll Hub and reviewed the search feature on teh Payroll Administration Resources page.  The goal was to identify areas where unexpected user input could cause unclear or unreliable behavior and make focused improvements without changing the purpose of the feature.
 
-The state value is `grossPay`, which keeps track of the current gross pay calculation.
+## Issue 1 - Empty or Whitespace-Only Input
 
-The state begins at 0: ```javascript let grossPay=0```
+The first issue I identified was how the sarch handled empty or whitespace-only input.  The saerch already used `.trim()`, but an empty value could still continue through the filtering process. Since an empty string can match the text in every resource section, the page could show all of teh resources without clearly explaining what happened.
 
-WHen the user enters hours worked and an hourly rate and clicks the "Calculate Gross Pay" button, the application validates the inputs and calculates the gross pay.  Instead of calculating and displaying the result in the same step, the application now updates the state first and then renders the current state on the webpage.
+To improve this, I added an `if` statement that checks whether the search value is empty after `.trim()` is used. If the value is empty, the program displays all resource sections, provides a message asking the user to enter a search term, and uses an early `return` to stop the rest of the filtering function.
 
-## Updating the Gross Pay State
+This makes the behavior more intentional and gives the user clear feedback instead of allowing an empty value to continue through the normal search process.
 
-I created the `updateGrossPay()` function to update the state: ```javascript function updateGrossPay(hours, rate) {grossPay = calculatePay(hours, rate); renderGrossPay();}```
+## Issue 2 - No Matching Search Results
 
-This function sends the hours worked and hourly rate to the existing `calculatePay()` function.  The result is stored in the `grossPay` state variable.  After the state is updated, the `renderGrossPay()` function is called. 
+The second issue I identified occurred when the user entered a search that did not match any of the available resources. Previoiusly, the page only displayed that zero resource sections were shown. This worked, but it did not clearly explain what happened or what the user should do next.
 
-## Rendering the Gross Pay State
+I added a condition that checks whether the number of matching resources is zero. When there are no matches, the page now tells the user that no resources were found for the entered search and asks the user to try another search. 
 
-I created the `renderGrossPay()` function to display the current gross pay state on teh webpage: ```javascript function renderGrossPay() {displayResult(grosspayResult, `Gross Pay: $$ {grossPay.toFixed(2)};);}```
+This provides clearer feedback while keeping the rest of the interface working normally.
 
-The render function uses the current value stored in `grossPay` and displays it as currency with two decimal places
+## Safe Output
 
-## Gross Pay State Flow
+I also reviewed how the user's search value is displayed on the page. The search feedback uses `textContent` instead of `innerHTML`.  This is important because `textContent` displays the user's input as plain text instead of asking the browser to interpret the value as HTML.
 
-The Gross Pay Calculator now follows this process:
-1. The user enters hours worked.
-2. The user enters an hourly rate.
-3. The user clicks "calculate gross pay."
-4. The application checks that both inputs contain values.
-5. The hours and hourly rate are converted to numbers.
-6. A calculating message is displayed.
-7. The Calculate Gross Pay button is temporarily disabled.
-8. `updateGrossPay()` calculates and updates the `grossPay` state.
-9. `renderGrossPay()` displays the current state on the webpage.
-10. The calculate gross pay button is enabled again.
+I tested this by entering text that looked like HTML. The HTML-looking characters stayed visible as text and were not treated as page structure.
+
+### Three Input Tests
+
+### Test 1 - Empty or Whitespace-Only Input
+
+For the first test, I entered only spaces into the resource search box.
+
+The `.trim()` method removed the spaces, and the program recognized the search as empty. All three resource sections remained visible, and the page displayed a message asking the user to enter a search term. 
+
+This confirmed that the empty input was intentionally handled and did not break the page.
+
+### Test 2 - Normal Input
+
+For the second test, I entered: `calculator`
+
+The search worked normally and displayed the Pay Check Calculator section while hiding the sections that did not match.  The page reported that one resource section was found. 
+
+This confirmed that the reliability changes did not interfere with the normal serch behavior.
+
+### Test 3 - HTML-Looking Input
+
+For the third test, I entered: `<b>calculator</b>`
+
+The search did not find a matching resource, and the page displayed the entered value as plain text in the feedback message.  The `<b>` tags were visible and were not interpreted by the browser as HTML.
+
+This test confirmed that using `textContent` keeps user-provided text as text instead of allowing HTML-looking input to change the page structure.
+
+## Evidence and Testing
+
+I tested the updated search in the browser and used the browser console to observe the different input paths.  The console showed when the filtering function ran and provided messages for unexpected conditions such as no matching resources.
+
+I tested normal input, empty or whitespace-only input, and HTML-looking input. The page continued working during all three tests and provided clear feedback when the input could not produce a normal search result.
+
+## What I Learned
+
+This assignment helped me understand that a feature workigin wiht normal input does not mean that it will handle every type of input correctly.  Testing unusual or unexpected values helped me see where the application was making assumptions about what a user would enter.
+
+I also learned why .trim(), if statements, early return, and textContent are useful for mkaing a page more reliable. These were small changes to an existing feature, but they made the behavior more predictable and gave the user clearer feedback when something unexpected was entered.
+
+## AI Use Disclosure
+
+I used AI as a collaborater to review my existing Payroll Hub search feature, identify possible reliability issues and suggest focused input handling changes.  I reviewed the suggested changes, and completed the browser and console testing myself.

@@ -1,0 +1,33 @@
+{
+    "title": "Payroll Processing Checklist",
+    "tasks": [
+        {
+            "id": "timesheets",
+            "text": "Review employee timesheets"
+        },
+        {
+            "id": "timeOff",
+            "text": "Approve time off requests"
+        },
+        {
+            "id": "newHires",
+            "text": "Verify new hire payroll setup"
+        },
+        {
+            "id": "terminations",
+            "text": "Process employee terminations"
+        },
+        {
+            "id": "payrollChanges",
+            "text": "Enter benefit deduction changes"
+        },
+        {
+            "id": "finalReview",
+            "text": "Complete payroll reconciliations"
+        },
+        {
+            "id": "afterPayroll",
+            "text": "Do backend payroll processes"
+        }
+    ]
+}

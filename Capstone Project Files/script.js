@@ -98,6 +98,8 @@ function daysUntilPayroll() {
 }           
 
 // Display payroll countdown
+let timeoutCount = 0;
+
 function showPayrollCountdown() {
     console.log("Starting payroll countdown");
 
@@ -105,12 +107,10 @@ function showPayrollCountdown() {
 
     payrollBtn.disabled = true;
     setTimeout(function () {
-        displayResult(payrollCountdown, "Payroll date found. Calculating days remaining...");
-    }, 1000);
-
-    setTimeout(function () {
+        timeoutCount++;
+        console.log(`Timeout callbacks executed: ${timeoutCount}`);
         const daysRemaining = daysUntilPayroll();
-        displayResult(payrollCountdown, "Days until next payroll: " + daysRemaining);
+        displayResult(payrollCountdown, `Days until next payroll: ${daysRemaining}`);
         console.log("Payroll countdown complete");
         payrollBtn.disabled = false;
     }, 3000);

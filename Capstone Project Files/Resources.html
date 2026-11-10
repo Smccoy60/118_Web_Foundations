@@ -21,7 +21,13 @@
     </header>
     <div class="layout">
         <main class="page">
-            <section class="forms">
+            <section class="resource-filter">
+                <h2>Find a Payroll Administration Resource</h2>
+                <label for="resourceSearch"> Search resources:</label>
+                <input type="search" id="resourceSearch" placeholder="Type tax, deduction, or calculator">
+                <p id="filterStatus" aria-live="polite"></p> 
+            </section>
+            <section class="forms resource-item">
                 <h2>State Withholding Tax Sites</h2>
                 <ul>
                     <li><a href="https://www.mndor.state.mn.us/tp/eservices/_/#8">MN State Tax Withholding</a></li>
@@ -32,7 +38,7 @@
                 </ul>
             </section>
 
-            <section class="benefits">
+            <section class="benefits resource-item">
                 <h2>Deduction Payments</h2>
                 <ul>
                     <li><a href="https://www.expertpay.com/employerapp ">Expert Pay</a></li>
@@ -41,17 +47,34 @@
                 </ul>
             </section>
 
-            <section class="paycheckcalculator">
+            <section class="paycheckcalculator resource-item">
                 <h2>Pay Check Calculator</h2>
                 <ul>
                     <li><a href="https://www.adp.com/resources/tools/calculators/salary-paycheck-calculator.aspx">Pay Check Calculator</a></li> 
                 </ul>
+            </section>
+            <section class="payroll_checklist">
+                <h2 id="checklistTitle">Payroll Processing Checklist</h2>
+                <p class="checklist-description">Use this checklist to track the steps completed during payroll processing</p>
+                <div class="checklist-progress">
+                    <p id="checklistStatus">0 of 0 tasks completed</p>
+                    <div class="progress-bar">
+                        <div id="progressFill"></div>
+                    </div>
+                    <p id="progressPercent">0% Complete</p>
+                </div>
+                <div id="checklistItems">
+                    <p>Loading payroll checklist...</p>
+                </div>
+                <button id="resetChecklist" type="button">Reset Checklist</button>
+                <p id="checklistMessage" aria-live="polite"></p>
             </section>
         </main>
     </div>
     <footer>
         <p>2026 Sarah Imhoff</p>
     </footer>
+    <script src="resources.js"></script>
 </body>
 </html>
 
