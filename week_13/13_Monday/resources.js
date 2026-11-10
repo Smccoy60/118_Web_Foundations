@@ -77,7 +77,97 @@ resourceSearch.addEventListener("input", function () {
     clearTimeout(filterTimer);
 
     // Start a new timer
-    filterTTimer = setTimeout(function () {
+    filterTimer = setTimeout(function () {
         filterResources();
     }, 300);
 });
+
+// Payroll Processing Checklist Section
+
+// Find the checklist elements on the page
+const checklistTitle = document.querySelector("#checklistTitle");
+const checklistItems = document.querySelector("#checklistItems");
+const checklistStatus = document.querySelector("#checklistStatus");
+const progressFill = document.querySelector("#progressFill");
+const progressPercent = document.querySelector("#progressPercent");
+const resetChecklist = document.querySelector("#resetChecklist");
+const checklistMessage = document.querySelector("#checklistMessage");
+
+// Store the payroll checklist tasks
+let payrollTasks = [];
+
+// Load the payroll checklist from the JSON File
+async function loadPayrollChecklist() {
+    try {
+        const response = await fetch("payroll_checklist.json");
+        if (!response.ok) {
+            throw new Error("The payroll checklist could not be loaded");
+        }
+        const data = await response.json();
+        payrollTasks = data.tasks;
+        checklistTitle.textContent = data.title;
+        displayChecklist();
+    } catch (error) {
+        checklistItems.textContent = "The payroll checklist is unavailable. Please try again later.";
+        console.error("Checklist error:", error);
+    }
+}
+
+// Display the payroll checklist
+function displayChecklist() {
+    checklistItems.textContent = "";
+    payrollTasks.forEach(function (task) {
+        const checklistItem = document.createElement("div");
+        checklistItem.classList.add("checklist-item");
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.id = task.id;
+        const label = document.createElement("label");
+        label.htmlFor = task.id;
+        label.textContent = task.text;
+        checkbox.addEventListener("change", function () {
+            if (checkbox.checked) {
+                checklistItem.classList.add("completed");
+            } else {
+                checklistItem.classList.remove("completed");
+            }
+            updateChecklistProgress();
+            });
+        checklistItem.appendChild(checkbox);
+        checklistItem.appendChild(label);
+        checklistItems.appendChild(checklistItem);
+        });
+    updateChecklistProgress();
+}
+
+// Update the checklist progress
+function updateChecklistProgress () {
+    const checkboxes = checklistItems.querySelectorAll(`input[type="checkbox"]`);
+    const checkedBoxes = checklistItems.querySelectorAll(`input[type="checkbox"]:checked`);
+    const completedCount = checkedBoxes.length;
+    const totalCount = checkboxes.length;
+    let percentComplete = 0;
+    if (totalCount > 0) {
+        percentComplete = Math.round(
+            (completedCount / totalCount) * 100);
+    }
+    checklistStatus.textContent = `${completedCount} of ${totalCount} tasks completed`;
+    progressPercent.textContent = `${percentComplete}% Complete`;
+    progressFill.style.width = `${percentComplete}%`;
+}
+
+// Reset the payroll checklist
+resetChecklist.addEventListener("click", function () {
+    const checkboxes = checklistItems.querySelectorAll(`input[type="checkbox"]`);
+    checkboxes.forEach(function (checkbox) {
+        checkbox.checked = false;
+        checkbox
+            .closest(".checklist-item")
+            .classList.remove("completed");
+    });
+    updateChecklistProgress();
+    checklistMessage.textContent = "Payroll checklist has been reset.";
+});
+
+// Load the checklist when the page opens
+loadPayrollChecklist();
