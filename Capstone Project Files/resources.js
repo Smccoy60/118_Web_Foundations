@@ -86,7 +86,7 @@ resourceSearch.addEventListener("input", function () {
 
 // Find the checklist elements on the page
 const checklistTitle = document.querySelector("#checklistTitle");
-const checklistItems = document.querySelectorAll("#checklistItems");
+const checklistItems = document.querySelector("#checklistItems");
 const checklistStatus = document.querySelector("#checklistStatus");
 const progressFill = document.querySelector("#progressFill");
 const progressPercent = document.querySelector("#progressPercent");
@@ -104,11 +104,15 @@ async function loadPayrollChecklist() {
             throw new Error("The payroll checklist could not be loaded");
         }
         const data = await response.json();
+        if (!Array.isArray(data.tasks) || data.tasks.length === 0) {
+            throw new Error("No payroll checklist tasks were found.");
+        }
         payrollTasks = data.tasks;
         checklistTitle.textContent = data.title;
         displayChecklist();
     } catch (error) {
-        checklistItems.textContent = "The payroll checklist is unavailable. Please try again later.";
+        checklistItems.textContent = "The payroll checklist could not be loaded. Please refresh the page or try again later.";
+        checklistMessage.textContent = "Payroll checklist unavailable";
         console.error("Checklist error:", error);
     }
 }
@@ -131,7 +135,7 @@ function displayChecklist() {
             } else {
                 checklistItem.classList.remove("completed");
             }
-            updatedChecklistProgress();
+            updateChecklistProgress();
             });
         checklistItem.appendChild(checkbox);
         checklistItem.appendChild(label);
@@ -143,7 +147,7 @@ function displayChecklist() {
 // Update the checklist progress
 function updateChecklistProgress () {
     const checkboxes = checklistItems.querySelectorAll(`input[type="checkbox"]`);
-    const checkedBoxes = checklistItems.querySelectorALL(`input[type="checkbox"]:checked`);
+    const checkedBoxes = checklistItems.querySelectorAll(`input[type="checkbox"]:checked`);
     const completedCount = checkedBoxes.length;
     const totalCount = checkboxes.length;
     let percentComplete = 0;
@@ -171,3 +175,4 @@ resetChecklist.addEventListener("click", function () {
 
 // Load the checklist when the page opens
 loadPayrollChecklist();
+

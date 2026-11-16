@@ -69,55 +69,6 @@ function calculateGrossPay() {
 
 grosspayBtn.addEventListener("click", calculateGrossPay);
 
-// Payroll Countdown Section
-
-const payrollBtn = document.querySelector("#payrollBtn");
-const payrollCountdown = document.querySelector("#payrollCountdown");
-
-// Return Payroll Date
-function getPayrollDate() {
-    return new Date("2026-10-09");
-}
-
-// Calculate days between two dates
-function calculateDaysRemaining(targetDate, currentDate) {
-    const millisecondsPerDay = 1000 * 60 * 60 * 24;
-    return Math.ceil((targetDate - currentDate) / millisecondsPerDay);
-}
-
-// Main payroll countdown function
-function daysUntilPayroll() {
-    console.log("Calculating days until next payroll");
-    const today = new Date();
-    const payrollDate = getPayrollDate();
-    console.log("Today's Date: ", today);
-    console.log("Next Payroll Date: ", payrollDate);
-    const daysRemaining = calculateDaysRemaining(payrollDate, today);
-    console.log("Days remaining: ", daysRemaining);
-    return daysRemaining;
-}           
-
-// Display payroll countdown
-let timeoutCount = 0;
-
-function showPayrollCountdown() {
-    console.log("Starting payroll countdown");
-
-    displayResult(payrollCountdown, "Checking the next payroll date... Please wait.");
-
-    payrollBtn.disabled = true;
-    setTimeout(function () {
-        timeoutCount++;
-        console.log(`Timeout callbacks executed: ${timeoutCount}`);
-        const daysRemaining = daysUntilPayroll();
-        displayResult(payrollCountdown, `Days until next payroll: ${daysRemaining}`);
-        console.log("Payroll countdown complete");
-        payrollBtn.disabled = false;
-    }, 3000);
-}
-
-payrollBtn.addEventListener("click", showPayrollCountdown);
-
 // Total Compensation Section
 
 // Connect HTML elements
@@ -238,3 +189,94 @@ function generateCompensationReport() {
 
 // Button event listener
 compensationBtn.addEventListener("click", generateCompensationReport);
+
+
+// Payroll Calendar and Pay Period Tracker
+
+// Find the payroll calendar elements on the page
+const nextPayPeriod = document.querySelector("#nextPayPeriod");
+const payPeriodStatus = document.querySelector("#payPeriodStatus");
+const nextPayDate = document.querySelector("#nextPayDate");
+const nextPayrollCountdown = document.querySelector("#nextPayrollCountdown");
+const payrollCalendarMessage = document.querySelector("#payrollCalendarMessage");
+
+
+// Store the payroll calendar data
+let payrollCalendar = []
+
+// Load the payroll calendar from the JSON file
+async function loadPayrollCalendar() {
+    try {
+        const response = await fetch("payroll_calendar.json");
+        if (!response.ok) {
+            throw new Error("The payroll calendar could not be loaded.");
+        }
+        const data = await response.json();
+        payrollCalendar = data.payrolls;
+        displayNextPayroll();
+    } catch (error) {
+        payrollCalendarMessage.textContent = 
+            "The payroll calendar could not be loaded.";
+        console.error("Payroll calendar error:", error);
+    }
+}
+
+// Display the next upcoming payroll
+function displayNextPayroll() {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const nextPayroll = payrollCalendar.find(function (payroll) {
+        const payDate = createPayrollDate(payroll.payDate);
+        return payDate >= today;
+    });
+    if (!nextPayroll) {
+    nextPayPeriod.textContent = "No upcoming pay period found."; 
+        nextPayDate.textContent = "No upcoming pay date found."; 
+        nextPayrollCountdown.textContent = "";
+        return;
+    }
+
+    nextPayPeriod.textContent = `Pay Period: ${formatPayrollDate(nextPayroll.periodStart)} - ${formatPayrollDate(nextPayroll.periodEnd)}`;
+    const periodStart = createPayrollDate(nextPayroll.periodStart);
+    const periodEnd = createPayrollDate(nextPayroll.periodEnd);
+    if (today >= periodStart && today <= periodEnd) {
+        payPeriodStatus.textContent = "You are currently in this pay period.";
+    } else {
+        payPeriodStatus.textContent = "This is your next upcoming payroll.";
+    }
+    nextPayDate.textContent = `Pay Date: ${formatPayrollDate(nextPayroll.payDate)}`;
+
+        const payDate = createPayrollDate(nextPayroll.payDate);
+        const millisecondsRemaining = payDate.getTime() - today.getTime();
+        const daysRemaining = Math.ceil(millisecondsRemaining / (1000 * 60 * 60 * 24));
+        if (daysRemaining === 0) {nextPayrollCountdown.textContent = "Payday is today!";
+        } else if (daysRemaining === 1) {nextPayrollCountdown.textContent = "1 day until payday";
+        } else {nextPayrollCountdown.textContent = `${daysRemaining} days until payday`;
+    }
+}
+
+// Format payroll dates for display
+function formatPayrollDate(dateString) {
+    const dateParts = dateString.split("-");
+    const year = Number(dateParts[0]);
+    const month = Number(dateParts[1]) - 1;
+    const day = Number(dateParts[2]);
+    const date = new Date(year, month, day);
+    return date.toLocaleDateString("en-US", {
+        month: "long",
+        day: "numeric",
+        year: "numeric"
+    });
+}
+
+// Create a date from the payroll JSON
+function createPayrollDate(dataString) {
+    const dateParts = dataString.split("-");
+    const year = Number(dateParts[0]);
+    const month = Number(dateParts[1]) - 1;
+    const day = Number(dateParts[2]);
+    return new Date(year, month, day);
+}
+
+// Load the payroll calendar when the page opens
+loadPayrollCalendar();

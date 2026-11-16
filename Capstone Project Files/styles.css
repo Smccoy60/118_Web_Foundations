@@ -116,7 +116,7 @@ label, input, button {
     flex-wrap: wrap;
 }
 
-.calculator, .gross-pay-calculator, .total-compensation {
+.gross-pay-calculator, .total-compensation {
     background: #FFB39C;
     width: 350px;
     padding: 20px;
@@ -129,18 +129,13 @@ label, input, button {
     gap: 10px;
 }
 
-.calculator button {
-    margin-top: 10px;
-    width: 100%;
-}
-
-.calculator h2, .gross-pay-calculator h2, .total-compensation h2 {  
+.gross-pay-calculator h2, .total-compensation h2 {  
     text-align: center;
     font-size: 26px;
     margin: 5px 0 10px;
 }
 
-.calculator p, .gross-pay-calculator p, .total-compensation p {
+.gross-pay-calculator p, .total-compensation p {
     margin: 5px 0;
 }
 
@@ -316,13 +311,16 @@ label, input, button {
         width: 100%;
     }
 
-    .calculator-container {
-        flex-direction: column;
-        align-items: center;
-        padding: 0 15px;
+    .payroll-calendar {
+        width: 100%;
+        padding: 15px;
     }
 
-    .calculator, .gross-pay-calculator, .total-compensation {
+    .next-payroll-card {
+        padding: 15px;
+    }
+
+    .gross-pay-calculator, .total-compensation {
         width: 100%;
         max-width: 400px;
     }
@@ -336,6 +334,66 @@ label, input, button {
         width: 100%;
         padding: 0 15px;
     }
+}
+
+/* Payroll Calculator and Pay Period Tracker */
+.payroll_calendar h2 {
+    text-align: center;
+    font-size: 26px;
+    margin: 5px 0 10px;
+}
+
+.calendar-description {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.next-payroll-card {
+    background: #FFFFFF;
+    border-radius: 10px;
+    padding: 18px;
+    margin-top: 15px;
+}
+
+.next-payroll-card h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #1f4e78;
+    font-size: 22px;
+}
+
+.next-payroll-card p {
+    margin: 10px 0;
+}
+
+#nextPayPeriod {
+    font-weight: bold;
+}
+
+#payPeriodStatus {
+    background-color: #FFF8D4;
+    border-left: 4px solid #F9D62E;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+#nextPayDate {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#nextPayrollCountdown {
+    background-color: #1f4e78;
+    color: #ffffff;
+    border-radius: 6px;
+    padding: 10px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+#payrollCalendarMessage {
+    margin-top: 12px;
+    font-weight: bold;
 }
 
 /* Payroll Processing Checklist */

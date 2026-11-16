@@ -19,11 +19,6 @@
         <h1>Employee Resources</h1>
     </header>
         <div class="calculator-container">
-            <section class="calculator">
-                <h2>Payroll Countdown</h2>
-                <button id="payrollBtn">Check Payroll Countdown</button>
-                <p id="payrollCountdown"></p>
-            </section>
             <section class="gross-pay-calculator">
                 <h2>Gross Pay Calculator</h2>
                 <div class="payInputs">
@@ -38,6 +33,27 @@
                     <button id="grosspayBtn">Calculate Gross Pay</button>
                     <p id="grosspayResult"></p>
                 </div> <!-- .payInputs -->
+            </section>
+            </section>
+             <section class ="payroll-calendar">
+                <h2>Payroll Calendar & Pay Period Tracker</h2>
+                <p class="calendar-description">
+                    View upcoming pay periods and pay dates.
+                </p>
+                <div class="next-payroll-card">
+                    <h3>Next Payroll</h3>
+                    <p id="nextPayPeriod">
+                        Pay Period: Loading...
+                    </p>
+                    <p id="payPeriodStatus"></p>
+                    <p id="nextPayDate">
+                        Pay Date: Loading...
+                    </p>
+                    <p id="nextPayrollCountdown">
+                        Calculating days remaining...
+                    </p>
+                </div>
+                <p id="payrollCalendarMessage" aria-live="polite"></p>
             </section>
             <section class="total-compensation">
                 <h2>Total Compensation</h2>
