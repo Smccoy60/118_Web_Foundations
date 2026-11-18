@@ -1,0 +1,19 @@
+{"health": {
+    "none": 0,
+    "single": 9060.84,
+    "employeeSpouse": 19934.16,
+    "employeeChildren": 16429.44,
+    "family": 27182.40
+},
+ "dental": {
+    "none": 0,
+    "single": 498.72,
+    "family": 1782.00
+},
+ "hsa": {
+    "none": 0,
+    "single": 1000.00,
+    "family": 2000.00
+ },
+ "retirementRate": 0.0720
+}
