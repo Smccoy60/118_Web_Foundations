@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax & Government Websites | Payroll Hub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="nav-list">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="About.html">Payroll Help</a></li>
+            <li><a href="Resources.html">Payroll Administration Resources</a></li>
+            <li><a href="EmployeeResources.html">Employee Resources</a></li>
+            <li><a href="payroll-admin.html">Administrator Dashboard</a></li>
+        </ul>
+    </nav>
+    <header class="site-header">
+        <h1>New Hire Onboarding</h1>
+        <p>Track payroll and benefit setup for a new employee.</p>
+    </header>
+    <main class="page onboarding-page">
+        <div class="admin-back-link">
+            <a href="payroll-admin.html">&larr; Back to Administrator Dashboard</a>
+        </div>
+        <!-- Employee Information -->
+        <section class="onboarding-section">
+            <h2>Employee Information</h2>
+            <div class="onboarding-section">
+                <div class="inputGroup">
+                    <label for="employeeName">Employee Name</label>
+                    <input type="text" id="employeeName">
+                </div>
+            <div class="inputGroup">
+                <label for="employeeNumber">Employee Number</label>
+                <input type="text" id="employeeNumber">
+            </div>
+            <div class="inputGroup">
+                <label for="jobTitle">Job Title</label>
+                <input type="text" id="jobTitle">
+            </div>
+            <div class="inputGroup">
+                <label for="department">Department</label>
+                <input type="text" id="department">
+            </div>
+            <div class="inputGroup">
+                <label for="supervisor">Supervisor</label>  
+                <input type="text" id="supervisor">
+            </div>
+            <div class="inputGroup">
+                <label for="startDate">Start Date</label>
+                <input type="date" id="startDate">
+            </div>
+            <div class="inputGroup">
+                <label for="benefitsDate">Benefits First Day</label>
+                <input type="date" id="benefitsDate">
+            </div>
+            <div class="inputGroup">
+                <label for="payRate">Annual Salary or Hourly Rate</label>
+                <input type="number" id="payRate" step="0.01">
+            </div>
+            <div class="inputGroup">
+                <label for="annualHours">Annual Hours</label>
+                <input type="number" id="annualHours">>
+            </div>
+        </section>
+        <!-- Onboarding Progress -->
+        <section class="onboarding-progress">
+            <h2>New Hire Onboarding Progress</h2>
+            <p id="onboardingStatus">0 of 23 tasks completed</p>
+            <div class="onboarding-progress-bar">
+                <div id="onboardingProgressFill"></div>
+            </div>
+            <p id="onboardingPercent">0% Complete</p>
+        </section>
+        <!-- Initial Onboarding -->
+        <section class="onboarding-section">
+            <h2>Initial Onboarding</h2>
+            <div class="onboarding-task">
+                <input type="checkbox" id="onboardingPacketSent">
+                <label for="onboardingPacketSent">Onboarding Packet Sent</label>
+            </div>
+            <div class="onboarding-task">
+                <input type="checkbox" id="onboardingPacketCompleted">
+                <label for="onboardingPacketCompleted">Onboarding Packet Completed</label>
+            </div>
+            <div class="onboarding-task">
+                <input type="checkbox" id="benefitsPacketSent">
+                <label for="benefitsPacketSent">Benefits Packet Sent</label>
+            </div>
+            <div class="onboarding-task">
+                <input type="checkbox" id="benefitsPacketCompleted">
+                <label for="benefitsPacketCompleted">Benefits Packet Completed</label>
+            </div>
+            <div class="onboarding-task">
+                <input type="checkbox" id="anthologyOrientation">
+                <label for="anthologyOrientation">Enter Employee into Anthology</label>
+            </div>
+            <div class="onboarding-task">
+                <input type="checkbox" id="imputedLife">
+                <label for="imputedLife">Review Imputed Life</label>
+            </div>
+            <div class="onboarding-task">
+                <input type="checkbox" id="acaBenefits">
+                <label for="acaBenefits">Add ACA Benefits in Anthology HR</label>
+            </div>
+            <div class="onboarding-task">
+                <input type="checkbox" id="dependents">
+                <label for="dependents">Add Dependents and Assign Coverages</label>
+            </div>
+        </section>
+        <!-- Benefit Vendor Enrollment -->
+        <section class="onboarding-section">
+            <h2>Benefit Vendor Enrollment</h2>
+            <div class="onboarding-task">
+                <input type="checkbox" id="medical">
+                <label for="medical">UMR Medical</label>
+            </div>
+            <div class="onboarding-task">
+                <input type="checkbox" id="dental">
+                <label for="dental">Delta Dental</label>
+            </div>
+            <div class="onboarding-task">
+                <input type="checkbox" id="vision">
+                <label for="vision">Superior Vision</label>
+            </div>
+            <div class="onboarding-task">
+                <input type="checkbox" id="wrs">
+                <label for="wrs">WRS Enrollment</label>
+            </div>
+            <div class="onboarding-task">
+                <input type="checkbox" id="hsa">
+                <label for="hsa">HSA Enrollment</label>
+            </div>
+            <div class="onboarding-task">
+                <input type="checkbox" id="lifeInsurance">
+                <label for="lifeInsurance">Life Insurance Enrollment</label>
+            </div>
+            <div class="onboarding-task">
+                <input type="checkbox" id="disability">
+                <label for="disability">LTD & STD Disability</label>
+            </div>
+        </section>
+        <!-- Voluntary Benefits -->
+        <section class="onboarding-section">
+            <h2>Voluntary Benefits</h2>
+            <div class="onboarding-task">
+                <input type="checkbox" id="flex">
+                <label for="flex">Flex Plan</label>
+            </div>
+            <div class="onboarding-task">
+                <input type="checkbox" id="petInsurance">
+                <label for="petInsurance">Pet Insurance</label>
+            </div>
+            <div class="onboarding-task">
+                <input type="checkbox" id="legalInsurance">
+                <label for="legalInsurance">Legal Insurance</label>
+            </div>
+            <div class="onboarding-task">
+                <input type="checkbox" id="accidentInsurance">
+                <label for="accidentInsurance">Accident Insurance</label>
+            </div>
+            <div class="onboarding-task">
+                <input type="checkbox" id="plan457">
+                <label for="plan457">457 Plan</label>
+            </div>
+            <div class="onboarding-task">
+                <input type="checkbox" id="plan403">
+                <label for="plan403">403 Plan</label>
+            </div>
+        </section>
+        <!-- Final Steps -->
+        <section class="onboarding-section">
+            <h2>Final Onboarding Steps</h2>
+            <div class="onboarding-task">
+                <input type="checkbox" id="onboardingMeeting">
+                <label for="onboardingMeeting">Onboarding Meeting Set</label>
+            </div>
+            <div class="onboarding-task">
+                <input type="checkbox" id="wrsLookback">
+                <label for="wrsLookback">Add to WRS Rolling Lookback</label>
+            </div>
+            <div class="onboarding-task">
+                <input type="checkbox" id="benefitSmartsheet">
+                <label for="benefitSmartsheet">Add Benefit Enrollments to Payroll & Benefits Smartsheet</label>
+            </div>
+        </section>
+        <div class="onboarding-actions">
+            <button type="button" id="saveOnboarding">
+                Save Checklist
+            </button>
+            <button type="button" id="clearOnboarding">
+                Start New Employee
+            </button>
+        </div>
+        <p id="onboardingMessage" aria-live="polite"></p>
+    </main>
+    <footer>
+        <p>2026 Sarah Imhoff</p>
+    </footer>
+    <script src="onboarding-checklist.js"></script>
+</body>
+</html>
