@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tax & Government Websites | Payroll Hub</title>
+    <title>New Hire Onboarding | Payroll Hub</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -27,7 +27,7 @@
         <!-- Employee Information -->
         <section class="onboarding-section">
             <h2>Employee Information</h2>
-            <div class="onboarding-section">
+            <div class="onboarding-form-grid">
                 <div class="inputGroup">
                     <label for="employeeName">Employee Name</label>
                     <input type="text" id="employeeName">
@@ -62,7 +62,8 @@
             </div>
             <div class="inputGroup">
                 <label for="annualHours">Annual Hours</label>
-                <input type="number" id="annualHours">>
+                <input type="number" id="annualHours">
+            </div>
             </div>
         </section>
         <!-- Onboarding Progress -->
@@ -113,33 +114,175 @@
         <!-- Benefit Vendor Enrollment -->
         <section class="onboarding-section">
             <h2>Benefit Vendor Enrollment</h2>
-            <div class="onboarding-task">
-                <input type="checkbox" id="medical">
-                <label for="medical">UMR Medical</label>
+            <div class="onboarding-task-benefit-task">
+                <div class="benefit-task-header">
+                    <input type="checkbox" id="medical">
+                    <label for="medical">UMR Medical</label>
+                </div>
+                <div class="benefit-details">
+                    <div class="inputGroup">
+                        <label for="medicalElection">Coverage Election</label>
+                        <select id="medicalElecton">
+                            <option value="">Select Coverage</option>
+                            <option value="waived">Waived</option>
+                            <option value="single">Single</option>
+                            <option value="employeeSpouse">Employee + Spouse</option>
+                            <option value="employeeChildren">Employee + Children</option>
+                            <option value="family">Family</option>
+                        </select>
+                    </div>
+                    <div class="inputGroup">
+                        <label for="medicalEffectiveDate">Effective Date</label>
+                        <input type="date" id="medicalEffectiveDate">
+                    </div>
+                <div class="inputGroup">
+                    <label for="medicalCompletedDate">Enrollment Completed Date</label>
+                    <input type="date" id="medicalCompletedDate">
+                </div>
+                </div>
             </div>
-            <div class="onboarding-task">
-                <input type="checkbox" id="dental">
-                <label for="dental">Delta Dental</label>
+            <div class="onboarding-task-benefit-task">
+                <div class="benefit-task-header">
+                    <input type="checkbox" id="dental">
+                    <label for="dental">Delta Dental</label>
+                </div>
+                <div class="benefit-details">
+                    <div class="inputGroup">
+                        <label for="dentalElection">Coverage Election</label>
+                        <select id="dentalElection">
+                            <option value="">Select Coverage</option>
+                            <option value="waived">Waived</option>
+                            <option value="single">Single</option>
+                            <option value="family">Family</option>
+                        </select>
+                    </div>
+                    <div class="inputGroup">
+                        <label for="dentalEffectiveDate">Effective Date</label>
+                        <input type="date" id="dentalEffectiveDate">
+                    </div>
+                <div class="inputGroup">
+                    <label for="dentalCompletedDate">Enrollment Completed Date</label>
+                    <input type="date" id="dentalCompletedDate">
+                </div>
             </div>
-            <div class="onboarding-task">
-                <input type="checkbox" id="vision">
-                <label for="vision">Superior Vision</label>
+            <div class="onboarding-task-benefit-task">
+                <div class="benefit-task-header">
+                    <input type="checkbox" id="vision">
+                    <label for="vision">Superior Vision</label>
+                </div>
+                <div class="benefit-details">
+                    <div class="inputGroup">
+                        <label for="visionElection">Coverage Election</label>
+                        <select id="visionElection">
+                            <option value="">Select Coverage</option>
+                            <option value="waived">Waived</option>
+                            <option value="single">Single</option>
+                            <option value="employee+spouse">Employee + Spouse</option>
+                            <option value="employee+child">Employee + Child</option>
+                            <option value="family">Family</option>
+                        </select>
+                    </div>
+                    <div class="inputGroup">
+                        <label for="visionEffectiveDate">Effective Date</label>
+                        <input type="date" id="visionEffectiveDate">
+                    </div>
+                <div class="inputGroup">
+                    <label for="visionCompletedDate">Enrollment Completed Date</label>
+                    <input type="date" id="visionCompletedDate">
+                </div>
             </div>
-            <div class="onboarding-task">
-                <input type="checkbox" id="wrs">
-                <label for="wrs">WRS Enrollment</label>
+            <div class="onboarding-task-benefit-task">
+                <div class="benefit-task-header">
+                    <input type="checkbox" id="wrs">
+                    <label for="wrs">WRS Enrollment</label>
+                </div>
+                <div class="benefit-details">
+                    <div class="inputGroup">
+                        <label for="wrsEligibility">Eligibility</label>
+                        <select id="wrsEligibility">
+                            <option value="">Select Eligibility</option>
+                            <option value="eligible">Eligible</option>
+                            <option value="notEligible">Not Eligible</option>
+                        </select>
+                    </div>
+                    <div class="inputGroup">
+                        <label for="wrsEffectiveDate">Effective Date</label>
+                        <input type="date" id="wrsEffectiveDate">
+                    </div>
+                <div class="inputGroup">
+                    <label for="wrsCompletedDate">Enrollment Completed Date</label>
+                    <input type="date" id="wrsCompletedDate">
+                </div>
             </div>
-            <div class="onboarding-task">
-                <input type="checkbox" id="hsa">
-                <label for="hsa">HSA Enrollment</label>
+            <div class="onboarding-task-benefit-task">
+                <div class="benefit-task-header">
+                    <input type="checkbox" id="hsa">
+                    <label for="hsa">HSA Enrollment</label>
+                </div>
+                <div class="benefit-details">
+                    <div class="inputGroup">
+                        <label for="hsaElection">HSA Election</label>
+                        <select id="hsaElection">
+                            <option value="">Select Election</option>
+                            <option value="waived">Waived</option>
+                            <option value="single">Single</option>
+                            <option value="family">Family</option>
+                        </select>
+                    </div>
+                    <div class="inputGroup">
+                        <label for="hsaEffectiveDate">Effective Date</label>
+                        <input type="date" id="hsaEffectiveDate">
+                    </div>
+                <div class="inputGroup">
+                    <label for="hsaCompletedDate">Enrollment Completed Date</label>
+                    <input type="date" id="hsaCompletedDate">
+                </div>
             </div>
-            <div class="onboarding-task">
-                <input type="checkbox" id="lifeInsurance">
-                <label for="lifeInsurance">Life Insurance Enrollment</label>
+            <div class="onboarding-task-benefit-task">
+                <div class="benefit-task-header">
+                    <input type="checkbox" id="lifeInsurance">
+                    <label for="lifeInsurance">Life Insurance Enrollment</label>
+                </div>
+                <div class="benefit-details">
+                    <div class="inputGroup">
+                        <label for="lifeInsuranceElection">Life Insurance Election</label>
+                        <select id="lifeInsuranceElection">
+                            <option value="">Select Status</option>
+                            <option value="enrolled">Enrolled</option>
+                            <option value="waived">Waived</option>
+                        </select>
+                    </div>
+                    <div class="inputGroup">
+                        <label for="lifeInsuranceEffectiveDate">Effective Date</label>
+                        <input type="date" id="lifeInsuranceEffectiveDate">
+                    </div>
+                <div class="inputGroup">
+                    <label for="lifeInsuranceCompletedDate">Enrollment Completed Date</label>
+                    <input type="date" id="lifeInsuranceCompletedDate">
+                </div>
             </div>
-            <div class="onboarding-task">
-                <input type="checkbox" id="disability">
-                <label for="disability">LTD & STD Disability</label>
+            <div class="onboarding-task-benefit-task">
+                <div class="benefit-task-header">
+                    <input type="checkbox" id="disability">
+                    <label for="disability">LTD & STD Disability</label>
+                </div>
+                <div class="benefit-details">
+                    <div class="inputGroup">
+                        <label for="disabilityElection">Disability Election</label>
+                        <select id="disabilityElection">
+                            <option value="">Select Status</option>
+                            <option value="enrolled">Enrolled</option>
+                            <option value="waived">Waived</option>
+                        </select>
+                    </div>
+                    <div class="inputGroup">
+                        <label for="disabilityEffectiveDate">Effective Date</label>
+                        <input type="date" id="disabilityEffectiveDate">
+                    </div>
+                <div class="inputGroup">
+                    <label for="disabilityCompletedDate">Enrollment Completed Date</label>
+                    <input type="date" id="disabilityCompletedDate">
+                </div>
             </div>
         </section>
         <!-- Voluntary Benefits -->

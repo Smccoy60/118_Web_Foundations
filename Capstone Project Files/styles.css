@@ -1421,3 +1421,48 @@ footer {
     color: var(--primary-orange);
     text-decoration: underline;
 }
+
+/* Benefit Enrollment Details */
+
+.benefit-task {
+    display: block;
+}
+
+.benefit-task-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.benefit-task-header label {
+    font-weight: 600;
+}
+
+.benefit-details {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 16px;
+    margin-top: 15px;
+    padding: 15px;
+    background-color: #f7f9fb;
+    border-radius: 8px;
+}
+
+.benefit-details .inputGroup {
+    margin-bottom: 0;
+}
+
+.benefit-details select, .benefit-details input[type="date"] {
+    width: 100%;
+    padding: 9px;
+    border: 1px solid #b8c2cc;
+    border-radius: 6px;
+    background-color: white;
+    font: inherit;
+}
+
+@media (max-width: 700px) {
+    .benefit-details {
+        grid-template-columns: 1fr;
+    }
+}
