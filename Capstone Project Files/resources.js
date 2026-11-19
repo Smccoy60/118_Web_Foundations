@@ -65,7 +65,7 @@ function filterResources() {
 
     // Safely display the successful search result
     filterStatus.textContent = 
-        `${visibleCount} resource section(s) found for "$(searchText)".`;
+        `${visibleCount} resource section(s) found for "${searchText}".`;
 }
 
 // Remember the current filter timer

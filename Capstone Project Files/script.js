@@ -36,7 +36,8 @@ function updateGrossPay(hours, rate) {
 
 // Render Gross Pay State
 function renderGrossPay() {
-    displayResult(grosspayResult, `Gross Pay: ${GrossPay.toFixed(2)}`);
+    const formattedGrossPay = GrossPay.toLocaleString("en-US", { style: "currency", currency: "USD" });
+    displayResult(grosspayResult, `Gross Pay: ${formattedGrossPay}`);
 }
 
 // Display a message in a page element
@@ -56,6 +57,11 @@ function calculateGrossPay() {
     const rate = getHourlyRate();
     console.log("Hours Entered: ", hours);
     console.log("Hourly Rate Entered: ", rate);
+
+    if (hours < 0 || rate < 0) {
+        displayResult(grosspayResult, "Hours worked and hourly rate cannot be negative.");
+        return;
+    }
 
     displayResult(grosspayResult, "Calculating gross pay... Please wait.");
 
