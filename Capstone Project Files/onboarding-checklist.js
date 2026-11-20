@@ -99,28 +99,76 @@ function loadSavedChecklist() {
         return;
     }
     const checklistData = JSON.parse(savedChecklist);
-    onboardingTasks.forEach(function (checkbox) {
-        if (checklistData[checkbox.id] === true) {
-            checkbox.checked = true;
-            checkbox
-                .closest(".onboarding-task")
-                .classList.add("completed");
+    // Load employee information
+    if (checklistData.employeeInformation) {
+        employeeName.value = checklistData.employeeInformation.employeeName || "";
+        employeeNumber.value = checklistData.employeeInformation.employeeNumber || "";
+        startDate.value = checklistData.employeeInformation.startDate || "";
+        jobTitle.value = checklistData.employeeInformation.jobTitle || "";
+        department.value = checklistData.employeeInformation.department || "";
+        supervisor.value = checklistData.employeeInformation.supervisor || "";
+        benefitsDate.value = checklistData.employeeInformation.benefitsDate || "";
+        payRate.value = checklistData.employeeInformation.payRate || "";
+        annualHours.value = checklistData.employeeInformation.annualHours || "";
+    }
+    // Load checkbox states
+    if (checklistData.tasks) {
+        onboardingTasks.forEach(function (checkbox) {
+                checkbox.checked = checklistData.tasks[checkbox.id] === true;
+                const taskRow = checkbox.closest(".onboarding-task");
+                if (checkbox.checked) {
+                    taskRow.classList.add("completed");
+                } else {
+                    taskRow.classList.remove("completed");
+                }
+        });
+    }
+    // Load benefit selections and dates
+    if (checklistData.benefits) {
+        benefitFields.forEach(function (field) {
+            if (checklistData.benefits[field.id] !== undefined) {
+                field.value = checklistData.benefits[field.id];
             }
-    });
+        });
+    }
     updateOnboardingProgress();
 }
 
 // Start new employee
 clearOnboarding.addEventListener("click", function () {
+
+    // Clear all checklist tasks
     onboardingTasks.forEach(function (checkbox) {
         checkbox.checked = false;
-        checkbox
-            .closest(".onboarding-task")
-            .classList.remove("completed");    
+        const taskRow = checkbox.closest(".onboarding-task");
+        if (taskRow) {
+            taskRow.classList.remove("completed");
+        }
     });
+
+    // Clear employee information
+    employeeName.value = "";
+    employeeNumber.value = "";
+    startDate.value = "";
+    jobTitle.value = "";
+    department.value = "";
+    supervisor.value = "";
+    benefitsDate.value = "";
+    payRate.value = "";
+    annualHours.value = "";
+
+    // Clear benefit selections and dates
+    benefitFields.forEach(function (field) {
+        field.value = "";
+    });
+
+    // Remove saved onboarding information
     localStorage.removeItem("onboardingChecklist");
 
+    // Reset progress
     updateOnboardingProgress();
+
+    // Show confirmation
     onboardingMessage.textContent = "Checklist cleared and ready for a new employee";
 });
 
