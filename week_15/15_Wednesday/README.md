@@ -82,3 +82,91 @@ I also tested text input with extra spaces before and after the entered value. U
 This assignment added a complete form submission process to the Payroll Hub. The form collects multiple values, prevents the browser's default submission behavior, reads and cleans the submitted values, validates incomplete input, and updates the page with feedback.
 
 I also tested both unsuccessful and successful submissions to make sure incomplete information is preserved while a successfully submitted form is cleared. The new form fits into the existing Payroll Help page because it gives users a way to practice submmitting a payroll-related question without entering confidential or sensitive payroll information. 
+
+#### Wednesday Assignment - Form Refinement and User Feedback
+
+For the Week 15 Wednesday assignment, I refined the Payroll Question form that i created for the Monday assignment. The goal was to improve validation, feedback, instructions, and the overall user experience without changing the main purpose of the form. 
+
+## Error and Success Feedback
+
+I improved teh form so unsuccessful and successful submissions have different visual feedback. When a submission has an error, JavaScript assigns an error class to the message:
+
+questionMessage.className = "form-message error-message";
+
+When the submission is successful, JavaScript assigns a success class:
+
+questionMessage.className = "form-message success-message";
+
+I added CSS to display error messages with a light red background and success messages with a light green background. The messages also contain text explaining the result, so the form does not rely only on color to communicate with the user.
+
+## More Specific Validation
+
+The Monday version displayed one general message when any field was missing. I improved the validation so the user is told exactly which field needs attention.
+
+For example: 
+if (nameValue === "") {
+    quesitonMessage.textContent = "Please enter your name.";
+    questionMessage.className = "form-message error-message";
+    questionName.focus();
+    return;
+}
+
+I added separate validation for the Name, Question Type, and Payroll Question fields.
+
+The possible validation messages are:
+* Please enter your name.
+* Please select a question type.
+* Please enter your payroll question.
+
+## Input Focus
+
+I also used .focus() when validation fails.
+
+For Example:
+questionName.focus();
+
+This automatically moves the cursor or focus to the field that needs to be completed. The user does not have to search for the field that caused the validation message. 
+
+## Improved Form Instructions
+
+I updated the instructions above the form to explain that all three fields should be completed. I also added helpful placeholder text to the Name and Payroll QUestion fields.
+
+The original labels remain in place so the placeholders provide additional instructions instead of replacing the field labels. 
+
+## Testing
+
+# Missing Name Test
+
+I submitted the form with all fields blank.  The form displayed: 
+
+Please enter your name.
+
+Focus moved to the Name field.
+
+## Missing Question Type Test
+
+I entered a name but did not select a Question Type.  The form displayed:
+
+Please select a question type.
+
+Focus moved to the Question Type field.
+
+## Missing Payroll Question Test
+
+I entered a name and selected a Question Type but left the Payroll Question blank. The form displayed:
+
+Please enter your payroll question
+
+Focus moved to the Payroll Question field.
+
+## Sucessful Submission Test
+
+I completed all three fields and submitted the form.  The form displayed the green success message containign the user's name and selected question type.  The form reset after the successful submission.
+
+### Wednesday Work Notes
+
+The Wednesday changes improved teh form without changing its original purpose. The form now gives clearer instructions before submission, identifies the specific field that is missing, moves focus to the field that needs attention, and visually distinguishes errors from successful submissions.
+
+I also retested the successful submission process after making the changes to make sure the original Monday functionality still worked correctly. 
+
+

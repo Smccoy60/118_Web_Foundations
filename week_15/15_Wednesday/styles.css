@@ -1466,3 +1466,23 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
+/* Payroll Question Form Feedback */
+.form-message {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.error-message {
+    background-color: #fce8e6;
+    color: #8b1e1e;
+    border: 1px solid #d9534f;
+}
+
+.success-message {
+    background-color: #e6f4ea;
+    color: #246b35;
+    border: 1px solid #4f9d69;
+}
