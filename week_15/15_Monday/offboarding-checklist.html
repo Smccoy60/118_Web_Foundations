@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Offboarding | Payroll Hub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="nav-list">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="About.html">Payroll Help</a></li>
+            <li><a href="Resources.html">Payroll Administration Resources</a></li>
+            <li><a href="EmployeeResources.html">Employee Resources</a></li>
+            <li><a href="payroll-admin.html">Administrator Dashboard</a></li>
+        </ul>
+    </nav>
+    <header class="site-header">
+        <h1>Employee Offboarding Checklist</h1>
+        <p>Track payroll and benefit completion for an exiting employee.</p>
+    </header>
+    <main class="page onboarding-page">
+        <div class="admin-back-link">
+            <a href="payroll-admin.html">&larr; Back to Administrator Dashboard</a>
+        </div>
+        <!-- Employee Information -->
+        <section class="onboarding-section">
+            <h2>Employee &amp; Separation Information</h2>
+            <div class="onboarding-form-grid">
+                <div class="inputGroup">
+                    <label for="employeeName">Employee Name</label>
+                    <input type="text" id="employeeName">
+                </div>
+            <div class="inputGroup">
+                <label for="employeeNumber">Employee Number</label>
+                <input type="text" id="employeeNumber">
+            </div>
+            <div class="inputGroup">
+                <label for="jobTitle">Job Title</label>
+                <input type="text" id="jobTitle">
+            </div>
+            <div class="inputGroup">
+                <label for="department">Department</label>
+                <input type="text" id="department">
+            </div>
+            <div class="inputGroup">
+                <label for="lastDayWorked">Last Day Worked</label>  
+                <input type="date" id="lastDayWorked">
+            </div>
+            <div class="inputGroup">
+                <label for="benefitsLastDay">Benefits Last Day</label>
+                <input type="date" id="benefitsLastDay">
+            </div>
+            <div class="inputGroup">
+                <label for="terminationDate">Termination Date</label>
+                <input type="date" id="terminationDate">
+            </div>
+            <div class="inputGroup">
+                <label for="terminationReason">Reason for Separation</label>
+                <select id="terminationReason">
+                    <option value="">Select Reason</option>
+                    <option value="resignation">Resignation</option>
+                    <option value="termination">Termination</option>
+                    <option value="retirement">Retirement</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="inputGroup">
+                <label for="annualSalary">Annual Salary at Separation</label>
+                <input type="number" id="annualSalary" min="0" step="0.01" placeholder="0.00">
+            </div>
+            </div>
+        </section>
+        <!-- Onboarding Progress -->
+        <section class="onboarding-progress">
+            <h2>Employee Offboarding Progress</h2>
+            <p id="onboardingStatus">0 of 23 tasks completed</p>
+            <div class="onboarding-progress-bar">
+                <div id="onboardingProgressFill"></div>
+            </div>
+            <p id="onboardingPercent">0% Complete</p>
+        </section>
+        <!-- Initial Onboarding -->
+        <section class="onboarding-section">
+            <h2>Final Pay & Payroll Processing</h2>
+            <div class="onboarding-task">
+                <input type="checkbox" id="finalPayCalculation">
+                <label for="finalPayCalculation">Final Pay Calculation</label>
+            </div>
+            <div class="task-details">
+                <div class="inputGroup">
+                    <label for="finalPayDate">Final Pay Calculation Completed Date</label>
+                    <input type="date" id="finalPayDate">
+                </div>
+            </div>
+            <div class="onboarding-task benefit-task">
+                <div class="benefit-task-header">
+                    <input type="checkbox" id="mtoPayout">
+                    <label for="mtoPayout">MTO Payout Completed</label>
+                </div>
+                <div class="benefit-details">
+                    <div class="inputGroup">
+                        <label for="mtoApplicable">MTO Payout Applicable</label>
+                        <select id="mtoApplicable">
+                            <option value="">Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="inputGroup">
+                        <label for="mtoHours">MTO Hours to Pay</label>
+                        <input type="number" id="mtoHours" min="0" step="0.01" placeholder="0.00">
+                    </div>
+                    <div class="inputGroup">
+                        <label for="mtoPayoutDate">MTO Payout Date</label>
+                        <input type="date" id="mtoPayoutDate">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Benefit Vendor Enrollment -->
+        <section class="onboarding-section">
+            <h2>Benefit Vendor Terminations</h2>
+            <!-- UMR Medical -->
+            <div class="onboarding-task benefit-task">
+                <div class="benefit-task-header">
+                    <input type="checkbox" id="medicalTermination">
+                    <label for="medicalTermination">UMR Medical</label>
+                </div>
+                <div class="benefit-details">
+                    <div class="inputGroup">
+                        <label for="medicalCoverage">Coverage Type</label>
+                        <select id="medicalCoverage">
+                            <option value="">Select Coverage</option>
+                            <option value="none">None</option>
+                            <option value="single">Single</option>
+                            <option value="employeeSpouse">Employee + Spouse</option>
+                            <option value="employeeChildren">Employee + Children</option>
+                            <option value="family">Family</option>
+                        </select>
+                    </div>
+                    <div class="inputGroup">
+                        <label for="medicalVendorDate">Date Entered in Vendor</label>
+                        <input type="date" id="medicalVendorDate">
+                    </div>
+                </div>
+            </div>
+            <!-- Delta Dental -->
+            <div class="onboarding-task benefit-task">
+                <div class="benefit-task-header">
+                    <input type="checkbox" id="dentalTermination">
+                    <label for="dentalTermination">Delta Dental</label>
+                </div>
+                <div class="benefit-details">
+                    <div class="inputGroup">
+                        <label for="dentalCoverage">Coverage Type</label>
+                        <select id="dentalCoverage">
+                            <option value="">Select Coverage</option>
+                            <option value="none">None</option>
+                            <option value="single">Single</option>
+                            <option value="family">Family</option>
+                        </select>
+                    </div>
+                    <div class="inputGroup">
+                        <label for="dentalVendorDate">Date Entered in Vendor</label>
+                        <input type="date" id="dentalVendorDate">
+                    </div>
+                </div>
+            </div>
+            <!-- Superior Vision -->
+            <div class="onboarding-task  benefit-task">
+                <div class="benefit-task-header">
+                    <input type="checkbox" id="visionTermination">
+                    <label for="visionTermination">Superior Vision</label>
+                </div>
+                <div class="benefit-details">
+                    <div class="inputGroup">
+                        <label for="visionCoverage">Coverage Type</label>
+                        <select id="visionCoverage">
+                            <option value="">Select Coverage</option>
+                            <option value="none">None</option>
+                            <option value="single">Single</option>
+                            <option value="employee+spouse">Employee + Spouse</option>
+                            <option value="employee+child">Employee + Child</option>
+                            <option value="family">Family</option>
+                        </select>
+                    </div>
+                    <div class="inputGroup">
+                        <label for="visionVendorDate">Date Entered in Vendor</label>
+                        <input type="date" id="visionVendorDate">
+                    </div>
+                </div>
+            </div>
+            <!-- WRS -->
+            <div class="onboarding-task benefit-task">
+                <div class="benefit-task-header">
+                    <input type="checkbox" id="wrsTermination">
+                    <label for="wrsTermination">WRS Termination Spreadsheet</label>
+                </div>
+                <div class="benefit-details">
+                    <div class="inputGroup">
+                        <label for="wrsStatus">Status</label>
+                        <select id="wrsStatus">
+                            <option value="">Select Status</option>
+                            <option value="completed">Completed</option>
+                            <option value="notApplicable">Not Applicable</option>
+                        </select>
+                    </div>
+                    <div class="inputGroup">
+                        <label for="wrsCompletedDate">Completed Date</label>
+                        <input type="date" id="wrsCompletedDate">
+                    </div>
+                </div>
+            </div>
+            <!-- HSA -->
+            <div class="onboarding-task benefit-task">
+                <div class="benefit-task-header">
+                    <input type="checkbox" id="hsaTermination">
+                    <label for="hsaTermination">HSA (Associated) Termination</label>
+                </div>
+                <div class="benefit-details">
+                    <div class="inputGroup">
+                        <label for="hsaApplicable">HSA Applicable</label>
+                        <select id="hsaApplicable">
+                            <option value="">Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="inputGroup">
+                        <label for="hsaVendorDate">Date Entered in Vendor</label>
+                        <input type="date" id="hsaVendorDate">
+                    </div>
+                </div>
+            </div>
+            <!-- Life Insurance -->
+            <div class="onboarding-task benefit-task">
+                <div class="benefit-task-header">
+                    <input type="checkbox" id="lifeTermination">
+                    <label for="lifeTermination">Life Insurance Termination</label>
+                </div>
+                <div class="benefit-details">
+                    <div class="inputGroup">
+                        <label for="lifeApplicable">Coverage Applicable</label>
+                        <select id="lifeApplicable">
+                            <option value="">Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="inputGroup">
+                        <label for="lifeVendorDate">Date Entered in Vendor</label>
+                        <input type="date" id="lifeVendorDate">
+                    </div>
+                </div>
+            </div>
+            <!-- Disability -->
+            <div class="onboarding-task benefit-task">
+                <div class="benefit-task-header">
+                    <input type="checkbox" id="disabilityTermination">
+                    <label for="disabilityTermination">LTD & STD Disability</label>
+                </div>
+                <div class="benefit-details">
+                    <div class="inputGroup">
+                        <label for="disabilityApplicable">Coverage Applicable</label>
+                        <select id="disabilityApplicable">
+                            <option value="">Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="inputGroup">
+                        <label for="disabilityVendorDate">Date Entered in Vendor</label>
+                        <input type="date" id="disabilityVendorDate">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Voluntary Benefits -->
+        <section class="onboarding-section">
+            <h2>Voluntary Benefit Terminations</h2>
+            <!-- Flex Plan -->
+            <div class="onboarding-task benefit-task">
+                <div class="benefit-task-header">
+                    <input type="checkbox" id="flexTermination">
+                    <label for="flexTermination">Flex Plan</label>
+                </div>
+                <div class="benefit-details">
+                    <div class="inputGroup">
+                        <label for="flexApplicable">Employee Has Plan</label>
+                        <select id="flexApplicable">
+                            <option value="">Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="inputGroup">
+                        <label for="flexVendorDate">Date Entered in Vendor</label>
+                        <input type="date" id="flexVendorDate">
+                    </div>
+                </div>
+            </div>
+            <!-- Pet Insurance -->
+            <div class="onboarding-task benefit-task">
+                <div class="benefit-task-header">
+                    <input type="checkbox" id="petTermination">
+                    <label for="petTermination">Pet Insurance</label>
+                </div>
+                <div class="benefit-details">
+                    <div class="inputGroup">
+                        <label for="petApplicable">Employee Has Plan</label>
+                        <select id="petApplicable">
+                            <option value="">Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="inputGroup">
+                        <label for="petVendorDate">Date Entered in Vendor</label>
+                        <input type="date" id="petVendorDate">
+                    </div>
+                </div>
+            </div>
+            <!-- Legal Insurance -->
+            <div class="onboarding-task benefit-task">
+                <div class="benefit-task-header">
+                    <input type="checkbox" id="legalTermination">
+                    <label for="legalTermination">Legal Insurance</label>
+                </div>
+                <div class="benefit-details">
+                    <div class="inputGroup">
+                        <label for="legalApplicable">Employee Has Plan</label>
+                        <select id="legalApplicable">
+                            <option value="">Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="inputGroup">
+                        <label for="legalVendorDate">Date Entered in Vendor</label>
+                        <input type="date" id="legalVendorDate">
+                    </div>
+                </div>
+            </div>
+            <!-- Accident Insurance -->
+            <div class="onboarding-task benefit-task">
+                <div class="benefit-task-header">
+                    <input type="checkbox" id="accidentTermination">
+                    <label for="accidentTermination">Accident Insurance</label>
+                </div>
+                <div class="benefit-details">
+                    <div class="inputGroup">
+                        <label for="accidentApplicable">Employee Has Plan</label>
+                        <select id="accidentApplicable">
+                            <option value="">Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="inputGroup">
+                        <label for="accidentVendorDate">Date Entered in Vendor</label>
+                        <input type="date" id="accidentVendorDate">
+                    </div>
+                </div>
+            </div>
+            <!-- 457 Plan -->
+            <div class="onboarding-task benefit-task">
+                <div class="benefit-task-header">
+                    <input type="checkbox" id="plan457Termination">
+                    <label for="plan457Termination">457 Plan</label>
+                </div>
+                <div class="benefit-details">
+                    <div class="inputGroup">
+                        <label for="plan457Applicable">Employee Has Plan</label>
+                        <select id="plan457Applicable">
+                            <option value="">Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="inputGroup">
+                        <label for="plan457VendorDate">Date Entered in Vendor</label>
+                        <input type="date" id="plan457VendorDate">
+                    </div>
+                </div>
+            </div>
+            <!-- 403 Plan -->
+            <div class="onboarding-task benefit-task">
+                <div class="benefit-task-header">
+                    <input type="checkbox" id="plan403Termination">
+                    <label for="plan403Termination">403 Plan</label>
+                </div>
+                <div class="benefit-details">
+                    <div class="inputGroup">
+                        <label for="plan403Applicable">Employee Has Plan</label>
+                        <select id="plan403Applicable">
+                            <option value="">Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="inputGroup">
+                        <label for="plan403VendorDate">Date Entered in Vendor</label>
+                        <input type="date" id="plan403VendorDate">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Final Steps -->
+        <section class="onboarding-section">
+            <h2>Final System Updates</h2>
+            <div class="onboarding-task">
+                <input type="checkbox" id="anthologyEmployee">
+                <label for="anthologyEmployee">Terminate Employee in Anthology</label>
+            </div>
+            <div class="onboarding-task">
+                <input type="checkbox" id="anthologyPositions">
+                <label for="anthologyPositions">Terminate Positions in Anthology</label>
+            </div>
+            <div class="onboarding-task">
+                <input type="checkbox" id="acaCoverage">
+                <label for="acaCoverage">Update ACA Coverage</label>
+            </div>
+        </section>
+        <div class="onboarding-actions">
+            <button type="button" id="saveOffboarding">
+                Save Checklist
+            </button>
+            <button type="button" id="clearOffboarding">
+                Start New Employee
+            </button>
+        </div>
+        <p id="offboardingMessage" aria-live="polite"></p>
+    </main>
+    <footer>
+        <p>2026 Sarah Imhoff</p>
+    </footer>
+    <script src="offboarding-checklist.js"></script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmployeeResources</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="nav-list">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="About.html">Payroll Help</a></li>
+            <li><a href="Resources.html">Payroll Administration Resources</a></li>
+            <li><a href="EmployeeResources.html">Employee Resources</a></li>
+            <li><a href="payroll-admin.html">Administrator Dashboard</a></li>
+        </ul>
+    </nav>
+    <header class="site-header">
+        <h1>Employee Resources</h1>
+        <p>Payroll tools, pay dates, forms, benefits, and helpful information.</p>
+    </header>
+    <div class="employee-resources-container">
+        <!-- PAYROLL TOOLS -->
+        <section class="employee-section">
+            <div class="section-heading">
+                <h2>Payroll Tools</h2>
+                <p>Use these tools to review payroll information and estimate compensation.</p>
+            </div> <!-- .section-heading -->
+            <div class="employee-tools-grid">
+                <!-- Gross Pay Calculator -->
+                <section class="gross-pay-calculator">
+                    <h2>Gross Pay Calculator</h2>
+                    <p class="calculator-instructions">
+                        Enter your hours worked and hourly rate to calculate your gross pay.
+                    </p>
+                    <div class="payInputs">
+                        <div class="inputGroup">
+                        <label for="hoursWorked">Hours Worked:</label>
+                        <input id="hoursWorked" type="number" placeholder="Enter Hours Worked" />
+                    </div> <!-- .inputGroup -->
+                    <div class="inputGroup">
+                        <label for="hourlyRate">Hourly Rate:</label>
+                        <input id="hourlyRate" type="number" placeholder="Enter Hourly Rate" />
+                    </div> <!-- .inputGroup -->
+                    <button id="grosspayBtn" type="button">Calculate Gross Pay</button>
+                    <p id="grosspayResult" role="status">Enter your hours and hourly rate above.</p>
+                </div> <!-- .payInputs -->
+                </section> <!-- .gross-pay-calculator -->
+                <!-- PAYROLL CALENDAR -->
+                <section class="payroll-calendar">
+                    <h2>Payroll Calendar & Pay Period Tracker</h2>
+                    <p class="calendar-description">
+                        View upcoming pay periods and pay dates.
+                    </p>
+                    <div class="next-payroll-card">
+                        <h3>Next Payroll</h3>
+                        <p id="nextPayPeriod">
+                            Pay Period: Loading...
+                        </p>
+                        <p id="payPeriodStatus"></p>
+                        <p id="nextPayDate">
+                            Pay Date: Loading...
+                        </p>
+                        <p id="nextPayrollCountdown">
+                            Calculating days remaining...
+                        </p>
+                    </div>
+                    <p id="payrollCalendarMessage" aria-live="polite"></p>
+                </section> <!-- .payroll-calendar -->
+                <!-- TOTAL COMPENSATION -->
+                 <section class="total-compensation">
+                    <h2>Total Compensation Calculator</h2>
+                    <p>Enter your annual gross wage and select your current benefit coverage to estimate your total employer compensation.</p>
+                    <div class="inputGroup">
+                        <label for="annualWage">Annual Gross Wage:</label>
+                        <input id="annualWage" type="number" placeholder="Enter Annual Gross Wage" />
+                    </div> <!-- .inputGroup -->
+                    <div class="inputGroup">
+                        <label for="healthPlan">Health Coverage:</label>
+                        <select id="healthPlan">
+                            <option value="">Select Health Coverage</option>
+                            <option value="none">None</option>
+                            <option value="single">Single</option>
+                            <option value="employeeSpouse">Employee + Spouse</option>
+                            <option value="employeeChildren">Employee + Child(ren)</option>
+                            <option value="family">Family</option>
+                        </select>
+                    </div> <!-- .inputGroup -->
+                    <div class="inputGroup">
+                        <label for="dentalPlan">Dental Plan:</label>
+                        <select id="dentalPlan">
+                            <option value="">Select Dental Coverage</option>
+                            <option value="none">None</option>
+                            <option value="single">Single</option>
+                            <option value="family">Family</option>
+                        </select>
+                    </div> <!-- .inputGroup -->
+                    <div class="inputGroup">
+                        <label for="hsaPlan">HSA Contribution:</label>
+                        <select id="hsaPlan">
+                            <option value="">Select HSA Contribution</option>
+                            <option value="none">None</option>
+                            <option value="single">Single</option>
+                            <option value="family">Family</option>
+                        </select>
+                    </div> <!-- .inputGroup -->
+                    <button id="compensationBtn" type="button">Calculate Total Compensation</button>
+                </section> <!-- .total-compensation -->
+        </div>
+        <div id="compensationResult"></div> <!-- #compensationResult -->
+    </section>
+    <!-- EMPLOYEE INFORMATION -->
+    <section class="employee-section">
+        <div class="section-heading">
+            <h2>Employee Information</h2>
+            <p>Find commonly used payroll forms and benefit resources.</p>
+        </div> <!-- .section-heading -->
+        <div class="employee-info-grid">
+            <!-- FORMS -->
+             <section class="forms">
+                <h2>Payroll Forms</h2>
+                <h3>Tax Withholding Forms</h3>
+                <ul>
+                    <li><a href="https://www.irs.gov/forms-pubs/about-form-w-4" target="_blank" rel="noopener noreferrer">Federal W-4 Form</a></li>
+                    <li><a href="https://edd.ca.gov/siteassets/files/pdf_pub_ctr/de4.pdf" target="_blank" rel="noopener noreferrer">CA Withholding Form</a></li>
+                    <li><a href="https://revenue.iowa.gov/media/4324/download?inline" target="_blank" rel="noopener noreferrer">IA Withholding Form</a></li>
+                    <li><a href="https://www.revenue.state.mn.us/sites/default/files/2026-04/w-4mn.pdf" target="_blank" rel="noopener noreferrer">MN Withholding Form</a></li>
+                </ul>
+                <h3>Other Payroll Forms</h3>
+                <ul>
+                    <li><a href="DirectDepositForm.pdf" target="_blank" rel="noopener noreferrer">Direct Deposit Form</a></li>
+                    <li><a href="PayrollChangeForm.pdf" target="_blank" rel="noopener noreferrer">Payroll Change Form</a></li>
+                </ul>
+            </section> <!-- .forms -->
+            <!-- BENEFITS -->
+            <section class="benefits">
+                <h2>Benefit Resources</h2>
+                <p>Access benefit provider websites and insurance information</p>
+                <ul>
+                    <li><a href="https://www.umr.com/" target="_blank" rel="noopener noreferrer">Health Insurance</a></li>
+                    <li><a href="https://www.deltadental.com/" target="_blank" rel="noopener noreferrer">Dental Insurance</a></li>
+                    <li><a href="https://www.superiorvision.com/" target="_blank" rel="noopener noreferrer">Vision Insurance</a></li>
+                </ul>
+            </section> <!-- .benefits -->
+        </div>
+    </section> <!-- .benefits -->
+    <!-- FAQS -->
+    <section class="employee-section">
+        <div class="section-heading">
+            <h2>Frequently Asked Questions</h2>
+            <p>Select a question below to view more information.</p>
+        </div> <!-- .section-heading -->
+        <section class="faqs">
+            <details>
+                <summary>Why is my paycheck different this pay period?</summary>
+                <div class="faq-answer">
+                    <p>If your paycheck looks different this pay period, consider whether:</p>
+                    <ul>
+                        <li>Your tax withholding information changed.</li>
+                        <li>Your benefits or deductions changed.</li>
+                        <li>You worked overtime this pay period.</li>
+                        <li>You completed additional or extra work.</li>
+                    </ul>
+                </div>
+            </details>
+            <details>
+                <summary>How do I change my direct deposit?</summary>
+                <div class="faq-answer">
+                    <p>Contact Payroll or HR to update your direct deposit information.</p>
+                </div>
+            </details>
+            <details>
+                <summary>When will my W-2 be available?</summary>
+                <div class="faq-answer">
+                    <p>Your W-2 will be available by the end of January each year.</p>
+                </div>
+            </details>
+        </section> <!-- .faqs -->
+    </section> <!-- .employee-section -->
+</div>
+    <footer>
+        <p>2026 Sarah Imhoff</p>
+    </footer>
+<script src="script.js"></script>
+</body>
+</html>
