@@ -1,7 +1,7 @@
 // EMPLOYEE OFFBOARDING CHECKLIST //
 
 // Find the checklist elements
-const offboardingTasks = document.querySelectorAll('.offboarding-page input[type="checkbox"]');
+const offboardingTasks = document.querySelectorAll('.onboarding-page input[type="checkbox"]');
 const offboardingStatus = document.querySelector("#onboardingStatus");
 const offboardingProgressFill = document.querySelector("#onboardingProgressFill");
 const offboardingPercent = document.querySelector("#onboardingPercent");
@@ -13,7 +13,7 @@ const offboardingMessage = document.querySelector("#offboardingMessage");
 
 // Find emloyee and separation information
 const employeeName = document.querySelector("#employeeName");
-const employeeID = document.querySelector("#employeeID");
+const employeeNumber = document.querySelector("#employeeNumber");
 const jobTitle = document.querySelector("#jobTitle");
 const department = document.querySelector("#department");
 const lastDayWorked = document.querySelector("#lastDayWorked");
@@ -49,7 +49,7 @@ function updateOffboardingProgress() {
 // Listen for checklist changes
 offboardingTasks.forEach(function (checkbox) {
     checkbox.addEventListener("change", function () {
-        const taskRow = checkbox.closest(".offboarding-task");
+        const taskRow = checkbox.closest(".onboarding-task");
         if (checkbox.checked) {
             taskRow.classList.add("completed");
         } else {
@@ -64,7 +64,7 @@ saveOffboarding.addEventListener("click", function () {
     const checklistData = {
         employeeInformation: {
             employeeName: employeeName.value,
-            employeeID: employeeID.value,
+            employeeNumber: employeeNumber.value,
             jobTitle: jobTitle.value,
             department: department.value,
             lastDayWorked: lastDayWorked.value,
@@ -92,5 +92,53 @@ saveOffboarding.addEventListener("click", function () {
     offboardingMessage.textContent = "Offboarding checklist saved successfully.";
 });
 
-// Set starting progress
-updateOffboardingProgress();
+// Load saved offboarding checklist
+function loadSavedOffboardingChecklist() {
+    const savedChecklist = localStorage.getItem("offboardingChecklist");
+    if (!savedChecklist) {
+        updateOffboardingProgress();
+        return;
+    }
+
+    const checklistData = JSON.parse(savedChecklist);
+    // Load employee and separation information
+    if (checklistData.employeeInformation) {
+        employeeName.value = checklistData.employeeInformation.employeeName || "";
+        employeeNumber.value = checklistData.employeeInformation.employeeNumber || "";
+        jobTitle.value = checklistData.employeeInformation.jobTitle || "";
+        department.value = checklistData.employeeInformation.department || "";
+        lastDayWorked.value = checklistData.employeeInformation.lastDayWorked || "";
+        benefitsLastDay.value = checklistData.employeeInformation.benefitsLastDay || "";
+        terminationDate.value = checklistData.employeeInformation.terminationDate || "";
+        terminationReason.value = checklistData.employeeInformation.terminationReason || "";
+        annualSalary.value = checklistData.employeeInformation.annualSalary || "";
+    }
+    // Load checkbox states
+    if (checklistData.tasks) {
+        offboardingTasks.forEach(function (checkbox) {
+            checkbox.checked =
+                checklistData.tasks[checkbox.id] === true;
+            const taskRow = checkbox.closest(".onboarding-task");
+                if (taskRow) {
+                    if (checkbox.checked) {
+                        taskRow.classList.add("completed");
+                    } else {
+                        taskRow.classList.remove("completed");
+                    }
+                }
+            });
+    }
+
+    // Load dates, selections, and numbers
+    if (checklistData.fields) {
+        offboardingFields.forEach(function (field) {
+            if (checklistData.fields[field.id] !== undefined) {
+                field.value = checklistData.fields[field.id];
+            }
+        });
+    }
+
+// Recalculate progress
+    loadSavedOffboardingProgress();
+}
+
