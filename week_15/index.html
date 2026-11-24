@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <nav class="nav-list">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="About.html">Payroll Help</a></li>
+            <li><a href="Resources.html">Payroll Administration Resources</a></li>
+            <li><a href="EmployeeResources.html">Employee Resources</a></li>
+            <li><a href="payroll-admin.html">Administrator Dashboard</a></li>
+        </ul>
+    </nav>
+
+    <header class="site-header">
+        <h1>Payroll Hub</h1>
+        <p> Payroll resources, tools, and information in one place.</p>
+       </header>
+
+    <div class="layout home-layout">
+        <main class="page home-page">
+            <section class="home-welcome">
+                <h2>Welcome to the Payroll Hub</h2>
+                <p>Use the Payroll Hub to find payroll information, employee resources, calculators, payroll dates, and administrative tools.</p>
+            </section> <!-- .home-welcome -->
+            <section class="hub-navigation">
+                <a class="hub-card" href="EmployeeResources.html">
+                    <h2>Employee Resources</h2>
+                    <p>Access payroll dates, calculators, benefits information, tax resources, and frequently asked questions.</p>
+                    <span>View Employee Resources</span>
+                </a>
+                <a class="hub-card" href="About.html">
+                    <h2>Payroll Help</h2>
+                    <p>Find answers to common payroll questions and information about when to contact Payroll.</p>
+                    <span>Get Payroll Help</span>
+                </a>
+                <a class="hub-card" href="payroll-admin.html">
+                    <h2>Administrator Dashboard</h2>
+                    <p>Access payroll processing tools, administrative resources, payroll files, and employee processing links.</p>
+                    <span>Open Administrator Dashboard</span>
+                </a>
+            </section>
+            <section class="gross-pay-calculator home-calculator">
+                <h2>Quick Gross Pay Calculator</h2>
+                <p class="calculator-instructions">
+                    Enter your hours worked and hourly rate to calculate your gross pay.
+                </p>
+                <div class="inputGroup">
+                    <label for="hoursWorked">Hours Worked:</label>
+                    <input id="hoursWorked" type="number" placeholder="Enter Hours Worked" />   
+                </div> <!-- .inputGroup -->
+                <div class="inputGroup">
+                    <label for="hourlyRate">Hourly Rate:</label>
+                    <input id="hourlyRate" type="number" placeholder="Enter Hourly Rate" />
+                </div> <!-- .inputGroup -->
+                <button id="grosspayBtn" type="button">
+                    Calculate Gross Pay
+                </button>
+                <p id="grosspayResult" role="status">
+                    Enter your hours and hourly rate above.
+                </p>
+            </section>
+            <script src="script.js"></script>
+    </div> <!-- .layout -->
+    <footer>
+        <p>2026 Sarah Imhoff</p>
+    </footer>
+</body>
+</html>
+
